@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="content">
+        <div class="card">
+            <div class="card-header">
+                My Projects
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Project Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Company Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="project, projectStat : ${projects}">
+                            <td th:text="${projectStat.index + 1}"></td>
+                            <td th:text="${project.name}"></td>
+                            <td th:text="${project.formattedStartDate}"></td>
+                            <td th:text="${project.formattedEndDate}"></td>
+                            <td th:text="${project.companyName}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <h5 th:text="'Total Projects: ' + ${totalProjects}"></h5>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

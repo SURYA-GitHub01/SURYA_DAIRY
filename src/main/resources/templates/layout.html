@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Surya's Diary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CDN -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="sidebar">
+    <h3><i class="fas fa-book mr-2"></i>Surya's Dairy</h3>
+    <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home mr-2"></i>Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/projects"><i class="fas fa-folder mr-2"></i>Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="/salary"><span class="mr-2">₹</span>Salary</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about"><i class="fas fa-user mr-2"></i>About</a></li>
+    </ul></div>
+
+<div class="main-content">
+    <div th:insert="~{__${view}__ :: content}"></div>
+</div>
+
+</body>
+</html>

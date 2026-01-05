@@ -1,0 +1,367 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    /* New Revised Color Palette (Targeted Color Reintroduction) */
+    --primary-color: #0a6ebd; /* Professional, more assertive blue */
+    --primary-color-rgb: 10, 110, 189; /* RGB for translucent effects */
+    --primary-light: #52a7e7;
+    --primary-dark: #005a9c;
+
+    --accent-color: #28a745; /* Professional, prominent green */
+
+    --text-color-dark: #212529; /* Very dark grey */
+    --text-color-medium: #555555;
+    --text-color-light: #ffffff;
+    --text-color-muted: #6c757d;
+
+    --background-body: #eef4f7; /* Mild background for main content, matching sidebar hue */
+    --background-card: #ffffff; /* Pure white for cards */
+    --background-card-header: #f0f2f5; /* Subtle background for card headers */
+    --main-content-bg: #dbe8f4; /* A new, harmonious background color for the main content area */
+
+    --table-border-width: 0.5px; /* NEW: Define table border thickness */
+    --table-border: #afafaf; /* Darker, more prominent grey for table borders */
+    --border-color-light: #e9ecef; /* Slightly more visible light grey border */
+    --border-color-medium: #ced4da; /* Medium grey for clearer borders */
+
+    /* Sidebar Colors - Deeper, richer blue */
+    --sidebar-bg: #1e304f; /* Dark Navy */
+    --sidebar-text: #e9ecef;
+    --sidebar-hover-bg: #2a3c5a;
+    --sidebar-active-bg: #374966;
+    --sidebar-active-border: var(--accent-color);
+
+    /* Table Colors - Primary Header, Clean Body */
+    --table-header-bg: var(--primary-color); /* Primary color for headers */
+    --table-header-text: var(--text-color-light); /* White text on primary header */
+    --table-hover-bg: rgba(var(--primary-color-rgb), 0.08); /* More visible subtle primary tint on hover */
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 48px;
+
+    /* Typography */
+    --font-family-sans: 'Inter', 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --font-size-base: 0.9375rem; /* ~15px */
+    --font-size-sm: 0.8125rem; /* ~13px */
+    --font-size-lg: 1.125rem; /* ~18px */
+    --font-size-xl: 1.75rem; /* ~28px */
+    --line-height-base: 1.6;
+    --letter-spacing-base: 0.01em;
+    --letter-spacing-tight: -0.01em;
+
+    /* Border Radius */
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 0.75rem;
+
+    /* Shadows */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Base Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--text-color-dark);
+    letter-spacing: var(--letter-spacing-base);
+    background-color: var(--background-body); /* Apply body background here for full page */
+}
+
+body {
+    display: flex;
+    overflow: hidden;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color-dark);
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-tight);
+}
+h1 { font-size: var(--font-size-xl); margin-bottom: var(--spacing-lg); }
+h2 { font-size: var(--font-size-lg); margin-bottom: var(--spacing-md); }
+h3 { font-size: var(--font-size-base); font-weight: var(--font-weight-bold); }
+h4 { font-size: var(--font-size-base); font-weight: var(--font-weight-medium); }
+p { margin-bottom: var(--spacing-md); }
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    box-shadow: var(--shadow-md);
+    padding-top: 0; /* Removed padding-top */
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid rgba(0,0,0,0.15);
+}
+
+.sidebar h3 {
+    color: var(--text-color-light);
+    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) calc(var(--spacing-md) + var(--spacing-sm)); /* Adjusted top/bottom padding for centering */
+    margin: 0 0 var(--spacing-lg) 0; /* Explicit margin-bottom for spacing */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: var(--font-size-lg); /* Reverted font size */
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-tight);
+    text-align: left; /* Align title left to match menu items */
+    display: flex; /* Enable flexbox for icon alignment */
+    align-items: center; /* Vertically align icon and text */
+}
+
+.sidebar h3 i {
+    width: 25px; /* Fixed width for icon/symbol area */
+    text-align: center; /* Center the icon/symbol */
+    flex-shrink: 0; /* Prevent shrinking on smaller screens */
+    margin-right: var(--spacing-sm); /* Keep some spacing between icon and text */
+}
+
+.sidebar .nav {
+    flex-direction: column;
+    padding: 0 !important; /* Aggressive reset for alignment */
+    margin: 0 !important; /* Aggressive reset for alignment */
+}
+
+.sidebar .nav-item {
+    list-style: none;
+    padding: 0 !important; /* Aggressive reset for alignment */
+    margin: 0 !important; /* Aggressive reset for alignment */
+}
+
+.sidebar .nav-link {
+    color: var(--sidebar-text);
+    padding: var(--spacing-md) var(--spacing-lg) var(--spacing-md) var(--spacing-md); /* Consistent padding-left */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-left-color 0.2s ease;
+    border-left: var(--spacing-sm) solid transparent;
+    font-weight: var(--font-weight-regular);
+    font-size: 1.1rem; /* Increased font size */
+}
+
+.sidebar .nav-link i {
+    font-size: 1.1em; /* Ensure icon scales with text */
+    width: 25px; /* Fixed width for icon/symbol area */
+    text-align: center; /* Center the icon/symbol */
+    flex-shrink: 0; /* Prevent shrinking on smaller screens */
+    margin-right: var(--spacing-sm); /* Consistent spacing for icon */
+}
+
+.sidebar .nav-link span { /* Rupee symbol */
+    font-size: 1.2em; /* Explicitly increased font size for Rupee symbol */
+    width: 25px; /* Fixed width for icon/symbol area */
+    text-align: center; /* Center the icon/symbol */
+    flex-shrink: 0; /* Prevent shrinking on smaller screens */
+    margin-right: var(--spacing-sm); /* Consistent spacing for symbol */
+}
+
+.sidebar .nav-link:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: var(--text-color-light);
+    border-left-color: var(--primary-light);
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--sidebar-active-bg);
+    border-left-color: var(--sidebar-active-border);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-color-light);
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    padding: var(--spacing-xxl);
+    overflow-y: auto;
+    min-height: 100vh;
+    position: relative;
+    background-color: var(--main-content-bg); /* Harmonious but distinct background color */
+}
+
+/* Card Component */
+.card {
+    background-color: var(--background-card);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-xl);
+    border: 1px solid var(--border-color-light); /* Reverted to original subtle border */
+    overflow: hidden;
+}
+
+/* Specific prominent border for index page card */
+.index-card-prominent {
+    border: 2px solid var(--table-border);
+}
+
+/* Increase text size for specific paragraph on index page */
+.index-card-prominent .card-body p {
+    font-size: var(--font-size-lg);
+}
+
+/* Color for Welcome text on index page */
+.index-card-prominent .card-body h1 {
+    color: var(--sidebar-bg);
+    margin: 0; /* Remove default margins for precise centering */
+}
+
+/* Center welcome text on index page */
+.index-card-prominent .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding-top: var(--spacing-xl); /* Control vertical spacing */
+    padding-bottom: var(--spacing-xl); /* Control vertical spacing */
+}
+
+
+.card-header {
+    background-color: var(--sidebar-bg);
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-light); /* Changed to light text for readability on dark background */
+    border-bottom: 1px solid var(--border-color-light);
+    font-size: var(--font-size-lg);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+.card-body {
+    padding: var(--spacing-xl);
+}
+
+.card-footer {
+    background-color: var(--background-card-header);
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border-top: 1px solid var(--border-color-light);
+    color: var(--text-color-muted);
+    font-size: var(--font-size-sm);
+    text-align: right;
+}
+
+/* Table Styling - Final Redesign for Cleanliness and Definition */
+/* Specific rule for h5 inside .mb-4 for better alignment */
+.card-body .mb-4 h5 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate; /* !!! Crucial: Use separate to draw all borders */
+    border-spacing: 0; /* Remove space between cells */
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    border: var(--table-border-width) solid var(--table-border); /* Outer border for the table */
+    border-radius: var(--border-radius-sm); /* Slight roundness to the table itself */
+    overflow: hidden; /* Ensures border-radius is respected */
+}
+
+.table th, .table td {
+    padding: var(--spacing-md) var(--spacing-xl); /* Generous cell padding */
+    text-align: left;
+    border: var(--table-border-width) solid var(--table-border); /* All sides border for every cell */
+    vertical-align: middle;
+    word-wrap: break-word;
+    white-space: normal; /* Allow text to wrap normally */
+}
+
+.table thead th {
+    background-color: var(--sidebar-hover-bg); /* Lighter shade of menu color */
+    color: var(--table-header-text); /* White text */
+    font-weight: var(--font-weight-bold);
+    text-transform: none; /* Keep capitalization as is in content */
+    font-size: var(--font-size-base);
+    letter-spacing: var(--letter-spacing-tight);
+    white-space: nowrap;
+    border-top: none;
+    border-bottom: none;
+    border-left: var(--table-border-width) solid var(--table-border);
+    border-right: var(--table-border-width) solid var(--table-border);
+}
+
+
+.table tbody tr:hover {
+    background-color: var(--table-hover-bg);
+    color: var(--text-color-dark);
+    cursor: pointer;
+}
+
+/* Responsive Table Container - Simplified and cleaner */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: var(--spacing-md);
+    /* No border or border-radius here, table handles it */
+}
+
+/* Custom Scrollbar for Webkit */
+.main-content::-webkit-scrollbar, .sidebar::-webkit-scrollbar, .table-responsive::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.main-content::-webkit-scrollbar-track, .sidebar::-webkit-scrollbar-track, .table-responsive::-webkit-scrollbar-track {
+    background: var(--background-dark);
+    border-radius: 10px;
+}
+
+.main-content::-webkit-scrollbar-thumb, .sidebar::-webkit-scrollbar-thumb, .table-responsive::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 10px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover, .sidebar::-webkit-scrollbar-thumb:hover, .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Utility Classes */
+.mb-xs { margin-bottom: var(--spacing-xs) !important; }
+.mb-sm { margin-bottom: var(--spacing-sm) !important; }
+.mb-md { margin-bottom: var(--spacing-md) !important; }
+.mb-lg { margin-bottom: var(--spacing-lg) !important; }
+.mb-xl { margin-bottom: var(--spacing-xl) !important; }
+.mt-xs { margin-top: var(--spacing-xs) !important; }
+.mt-sm { margin-top: var(--spacing-sm) !important; }
+.mt-md { margin-top: var(--spacing-md) !important; }
+.mt-lg { margin-top: var(--spacing-lg) !important; }
+.mt-xl { margin-top: var(--spacing-xl) !important; }
+.p-md { padding: var(--spacing-md) !important; }
+.p-lg { padding: var(--spacing-lg) !important; }
+.text-muted { color: var(--text-color-muted) !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.font-weight-bold { font-weight: var(--font-weight-bold) !important; }
+.font-weight-medium { font-weight: var(--font-weight-medium) !important; }
+.text-primary { color: var(--primary-color) !important; }
+.text-accent { color: var(--accent-color) !important; }
