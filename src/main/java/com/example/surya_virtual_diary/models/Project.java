@@ -8,12 +8,14 @@ public class Project {
     private LocalDate startDate;
     private LocalDate endDate;
     private String companyName;
+    private boolean shouldHighlightCompanyName; // New field
 
     public Project(String name, LocalDate startDate, LocalDate endDate, String companyName) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
         this.companyName = companyName;
+        this.shouldHighlightCompanyName = false; // Default value
     }
 
     // Getters and setters
@@ -49,6 +51,14 @@ public class Project {
         this.companyName = companyName;
     }
 
+    public boolean isShouldHighlightCompanyName() {
+        return shouldHighlightCompanyName;
+    }
+
+    public void setShouldHighlightCompanyName(boolean shouldHighlightCompanyName) {
+        this.shouldHighlightCompanyName = shouldHighlightCompanyName;
+    }
+
     // New method to get formatted start date (day, month, year)
     public String getFormattedStartDate() {
         if (startDate == null) {
@@ -68,5 +78,10 @@ public class Project {
     // New method to check if the project is current
     public boolean isCurrent() {
         return endDate == null || endDate.isAfter(LocalDate.now());
+    }
+
+    // New method to check if the end date is the current day
+    public boolean isEndDateCurrentDay() {
+        return endDate != null && endDate.isEqual(LocalDate.now());
     }
 }

@@ -8,12 +8,18 @@ public class SalaryEntry {
     private double totalSalary;
     private String month; // Using String for month for simplicity, can be Month enum or int
     private int year;
+    private boolean shouldHighlightYear; // New field for year coloring
+    private boolean isAmountIncreased;
+    private boolean isJanuary;   // New field for amount increase coloring
 
     public SalaryEntry(String companyName, double totalSalary, String month, int year) {
         this.companyName = companyName;
         this.totalSalary = totalSalary;
         this.month = month;
         this.year = year;
+        this.shouldHighlightYear = false;
+        this.isAmountIncreased = false;
+        this.isJanuary = false; // Initialize new field
     }
 
     // Getters
@@ -33,14 +39,50 @@ public class SalaryEntry {
         return year;
     }
 
+    public boolean isShouldHighlightYear() {
+        return shouldHighlightYear;
+    }
+
+    public void setShouldHighlightYear(boolean shouldHighlightYear) {
+        this.shouldHighlightYear = shouldHighlightYear;
+    }
+
+    public boolean isAmountIncreased() {
+        return isAmountIncreased;
+    }
+
+    public void setAmountIncreased(boolean amountIncreased) {
+        isAmountIncreased = amountIncreased;
+    }
+
+    public boolean isJanuary() {
+        return isJanuary;
+    }
+
+    public void setJanuary(boolean january) {
+        isJanuary = january;
+    }
+
     // New method to get formatted salary with Indian Rupee symbol and space
     public String getFormattedTotalSalary() {
         Locale indianLocale = new Locale("en", "IN");
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(indianLocale);
-        // Format and explicitly add a space if not already present
+
+        if (this.totalSalary == (long) this.totalSalary) {
+            // If it's a whole number, set no decimal places
+            currencyFormatter.setMinimumFractionDigits(0);
+            currencyFormatter.setMaximumFractionDigits(0);
+        } else {
+            // Otherwise, allow standard currency decimal places (usually 2)
+            currencyFormatter.setMinimumFractionDigits(2); // Ensure at least two for non-whole numbers
+            currencyFormatter.setMaximumFractionDigits(2); // Limit to two for consistency
+        }
+
         String formatted = currencyFormatter.format(this.totalSalary);
+
+        // Ensure there's a space after the currency symbol if not already present
         if (!formatted.contains("₹ ")) {
-            return formatted.replace("₹", "₹ ");
+            formatted = formatted.replace("₹", "₹ ");
         }
         return formatted;
     }

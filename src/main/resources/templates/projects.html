@@ -20,18 +20,20 @@
                         </thead>
                         <tbody>
                         <tr th:each="project, projectStat : ${projects}">
-                            <td th:text="${projectStat.index + 1}"></td>
-                            <td th:text="${project.name}"></td>
+                            <td class="sno-bold" th:text="${projectStat.index + 1} + '.'"></td>
+                            <td class="project-title-bold" th:text="${project.name}"></td>
                             <td th:text="${project.formattedStartDate}"></td>
-                            <td th:text="${project.formattedEndDate}"></td>
-                            <td th:text="${project.companyName}"></td>
+                            <td th:text="${project.formattedEndDate}"
+                                th:classappend="${project.isCurrent() or project.isEndDateCurrentDay()} ? 'current-date-bold' : ''"></td>
+                            <td th:text="${project.companyName}"
+                                th:classappend="${project.shouldHighlightCompanyName} ? 'highlight-company' : ''"></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="card-footer text-muted">
-                <h5 th:text="'Total Projects: ' + ${totalProjects}"></h5>
+                <h5 class="projects-total-count" th:text="'Total Projects: ' + ${totalProjects}"></h5>
             </div>
         </div>
     </div>

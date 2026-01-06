@@ -52,9 +52,9 @@
     --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-bold: 700;
-    --font-size-base: 0.9375rem; /* ~15px */
+    --font-size-base: 1rem; /* Increased from 0.9375rem (~15px to 16px) */
     --font-size-sm: 0.8125rem; /* ~13px */
-    --font-size-lg: 1.125rem; /* ~18px */
+    --font-size-lg: 1.25rem; /* Increased from 1.125rem (~18px to 20px) */
     --font-size-xl: 1.75rem; /* ~28px */
     --line-height-base: 1.6;
     --letter-spacing-base: 0.01em;
@@ -261,11 +261,13 @@ p { margin-bottom: var(--spacing-md); }
 
 .card-footer {
     background-color: var(--background-card-header);
-    padding: var(--spacing-sm) var(--spacing-xl);
+    padding: var(--spacing-md) var(--spacing-xl); /* Increased vertical padding */
     border-top: 1px solid var(--border-color-light);
     color: var(--text-color-muted);
     font-size: var(--font-size-sm);
-    text-align: right;
+    display: flex;
+    justify-content: flex-end; /* Align to right corner */
+    align-items: center;
 }
 
 /* Table Styling - Final Redesign for Cleanliness and Definition */
@@ -288,7 +290,7 @@ p { margin-bottom: var(--spacing-md); }
 }
 
 .table th, .table td {
-    padding: var(--spacing-md) var(--spacing-xl); /* Generous cell padding */
+    padding: var(--spacing-md); /* Balanced padding (16px all sides) */
     text-align: left;
     border: var(--table-border-width) solid var(--table-border); /* All sides border for every cell */
     vertical-align: middle;
@@ -300,10 +302,10 @@ p { margin-bottom: var(--spacing-md); }
     background-color: var(--sidebar-hover-bg); /* Lighter shade of menu color */
     color: var(--table-header-text); /* White text */
     font-weight: var(--font-weight-bold);
-    text-transform: none; /* Keep capitalization as is in content */
+    text-transform: none;
     font-size: var(--font-size-base);
     letter-spacing: var(--letter-spacing-tight);
-    white-space: nowrap;
+    /* white-space: nowrap; -- Removed */
     border-top: none;
     border-bottom: none;
     border-left: var(--table-border-width) solid var(--table-border);
@@ -365,3 +367,201 @@ p { margin-bottom: var(--spacing-md); }
 .font-weight-medium { font-weight: var(--font-weight-medium) !important; }
 .text-primary { color: var(--primary-color) !important; }
 .text-accent { color: var(--accent-color) !important; }
+
+/* New Utility Class for Text Alignment */
+.text-align-right { text-align: right !important; }
+
+/* About Page Styling */
+.about-container {
+    max-width: 900px; /* Reintroduce max-width for better readability on large screens */
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--background-card);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    text-align: left; /* Align text left now */
+    overflow: hidden;
+}
+
+.about-container h1 {
+    color: var(--text-color-dark);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    text-align: center; /* Keep name centered */
+}
+
+.about-container p.contact-info-line {
+    font-size: var(--font-size-base);
+    color: var(--text-color-dark);
+    margin-bottom: var(--spacing-xl); /* More space below contact info */
+    text-align: center; /* Keep contact info centered */
+}
+
+.about-container p.contact-info-line i {
+    margin-right: var(--spacing-xs);
+    color: var(--primary-color);
+}
+
+.about-container p.contact-info-line a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+}
+.about-container p.contact-info-line a:hover {
+    text-decoration: underline;
+}
+
+.about-container .separator {
+    color: var(--text-color-medium);
+    margin: 0 var(--spacing-xs);
+}
+
+.about-section {
+    margin-bottom: var(--spacing-xxl); /* More space between sections */
+    padding: var(--spacing-md); /* Added padding to sections */
+    text-align: left;
+    border-bottom: 1px solid var(--border-color-light); /* Simple separator for sections */
+}
+
+.about-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0; /* No bottom margin for the last section */
+}
+
+.about-section h2 {
+    font-size: var(--font-size-lg);
+    color: var(--sidebar-bg); /* Use a darker color for section titles */
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--primary-color); /* More prominent accent border */
+    display: inline-block; /* to make border-bottom only as wide as text */
+}
+
+.education-entry, .experience-entry {
+    margin-bottom: var(--spacing-lg); /* Spacing between entries */
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px dashed var(--border-color-light); /* Subtle separator */
+}
+
+.education-entry:last-child, .experience-entry:last-child {
+    border-bottom: none; /* No border for the last entry */
+    margin-bottom: var(--spacing-sm);
+}
+
+.education-header, .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--spacing-xs);
+}
+
+.education-degree, .experience-role {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-dark);
+    margin-bottom: 0;
+}
+
+.education-date, .experience-date {
+    font-size: var(--font-size-base);
+    color: var(--text-color-medium);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: var(--spacing-md);
+    margin-bottom: 0;
+}
+
+.education-date i, .experience-date i {
+    margin-right: var(--spacing-xs);
+    color: var(--text-color-medium);
+}
+
+.institution-details, .company-location {
+    font-size: var(--font-size-sm);
+    color: var(--text-color-medium);
+    margin-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+}
+
+.company-location i {
+    margin-right: var(--spacing-xs);
+    color: var(--primary-color);
+}
+
+.skills-category {
+    margin-bottom: var(--spacing-lg); /* Increased spacing for skills categories */
+}
+
+.skills-category h3 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.skills-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.skills-list li {
+    background-color: var(--background-card-header);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    color: var(--text-color-dark);
+    border: 1px solid var(--border-color-light);
+}
+
+.projects-total-count {
+    margin: 0; /* Removed !important */
+    padding: 0; /* Removed !important */
+    line-height: 1;
+    text-align: center; /* Removed !important */
+    color: #2a3c5a; /* Changed to match table header background */
+}
+
+/* Custom styling for serial numbers to make them bold */
+.sno-bold {
+    font-weight: bold;
+}
+
+/* Custom styling for project titles to make them bold */
+.project-title-bold {
+    font-weight: bold;
+}
+
+/* Custom styling for current date to make them bold */
+.current-date-bold {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* Custom styling for salary amount default color */
+.salary-amount-default {
+    color: var(--primary-color);
+}
+
+/* Custom styling for highlighted year */
+.highlight-year {
+    color: var(--text-color-dark);
+}
+
+/* Custom styling for increased salary amounts */
+.amount-increased {
+    color: var(--accent-color);
+}
+
+/* Custom styling for January month and year */
+.january-highlight {
+    color: var(--accent-color);
+}
+
+/* Custom styling for highlighted company names */
+.highlight-company {
+    color: var(--primary-color);
+}
