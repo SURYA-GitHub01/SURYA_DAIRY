@@ -1,0 +1,91 @@
+.no-goals {
+    text-align: center;
+    color: var(--text-color-muted);
+    font-style: italic;
+    padding: var(--spacing-lg);
+    background-color: var(--background-card);
+    border-radius: var(--border-radius-md);
+    border: 1px dashed var(--border-color-medium);
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-lg);
+    color: var(--text-color-medium);
+}
+
+/* Updated Status colors - Ensuring high contrast and clear distinction */
+.status-planned {
+    background-color: #f5f5f5; /* Light grey */
+    color: #616161; /* Darker grey for text */
+    font-weight: var(--font-weight-bold);
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 90px;
+    text-align: center;
+    box-shadow: var(--shadow-xs);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.status-in-progress {
+    background-color: #fff8e1; /* Very light yellow */
+    color: #fbc02d; /* Google Material Design yellow */
+    font-weight: var(--font-weight-bold);
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 90px;
+    text-align: center;
+    box-shadow: var(--shadow-xs);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.status-completed {
+    background-color: #e8f5e9; /* Very light green */
+    color: #43a047; /* Google Material Design green */
+    font-weight: var(--font-weight-bold);
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 90px;
+    text-align: center;
+    box-shadow: var(--shadow-xs);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.status-default {
+    background-color: #e0e0e0; /* Light grey for default/planned */
+    color: #424242; /* Darker grey */
+    font-weight: var(--font-weight-bold);
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 90px;
+    text-align: center;
+    box-shadow: var(--shadow-xs);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Custom width for Goal Description column */
+.col-goal-description {
+    width: 70%;
+}
+
+/* Custom width for Status column and centering its content */
+.col-status {
+    width: 30%;
+    text-align: center; /* Center align the cell content */
+}
+
+/* Center all table headers by default for better consistency */
+.table th {
+    text-align: center;
+}
+
+/* Enforce fixed table layout (already in style.css but good to be explicit if needed) */
+.table {
+    table-layout: fixed;
+    width: 100%;
+}
