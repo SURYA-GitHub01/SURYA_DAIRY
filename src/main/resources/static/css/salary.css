@@ -1,0 +1,12 @@
+.january-highlight {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.highlight-year {
+    font-weight: bold;
+}
+
+.amount-increased {
+    color: green;
+}

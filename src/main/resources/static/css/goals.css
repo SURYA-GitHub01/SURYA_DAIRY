@@ -11,66 +11,61 @@
     color: var(--text-color-medium);
 }
 
+.card-short-term-goals .card-header,
+.card-long-term-goals .card-header {
+    background-color: var(--sidebar-bg) !important;
+    color: var(--text-color-light) !important;
+}
+
+
 /* Updated Status colors - Ensuring high contrast and clear distinction */
-.status-planned {
-    background-color: #f5f5f5; /* Light grey */
-    color: #616161; /* Darker grey for text */
-    font-weight: var(--font-weight-bold);
-    padding: 5px 10px;
-    border-radius: 4px;
+.col-status .status-planned {
+    background-color: #616161; /* Solid Darker Grey */
+    color: white !important; /* Contrasting white text */
+    font-weight: var(--font-weight-medium); /* Slightly less bold */
+    padding: 1px 12px; /* Reduced vertical, increased horizontal padding */
+    border-radius: 15px; /* More curved/pill-like */
     display: inline-block;
-    min-width: 90px;
+    /* min-width: 70px; Removed for more natural horizontal sizing */
     text-align: center;
-    box-shadow: var(--shadow-xs);
     transition: all 0.2s ease;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: none; /* No explicit border */
+    text-shadow: none; /* No text shadow */
 }
 
-.status-in-progress {
-    background-color: #fff8e1; /* Very light yellow */
-    color: #fbc02d; /* Google Material Design yellow */
-    font-weight: var(--font-weight-bold);
-    padding: 5px 10px;
-    border-radius: 4px;
+.col-status .status-in-progress {
+    background-color: #FFD700; /* Solid Gold Yellow */
+    color: black !important; /* Contrasting black text */
+    font-weight: var(--font-weight-medium);
+    padding: 1px 12px;
+    border-radius: 15px;
     display: inline-block;
-    min-width: 90px;
+    /* min-width: 70px; Removed for more natural horizontal sizing */
     text-align: center;
-    box-shadow: var(--shadow-xs);
     transition: all 0.2s ease;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: none;
+    text-shadow: none;
 }
 
-.status-completed {
-    background-color: #e8f5e9; /* Very light green */
-    color: #43a047; /* Google Material Design green */
-    font-weight: var(--font-weight-bold);
-    padding: 5px 10px;
-    border-radius: 4px;
+.col-status .status-completed {
+    background-color: #2e7d32; /* Solid Darker Forest Green */
+    color: white !important; /* Contrasting white text */
+    font-weight: var(--font-weight-medium);
+    padding: 1px 12px;
+    border-radius: 15px;
     display: inline-block;
-    min-width: 90px;
+    /* min-width: 70px; Removed for more natural horizontal sizing */
     text-align: center;
-    box-shadow: var(--shadow-xs);
     transition: all 0.2s ease;
-    border: 1px solid rgba(0,0,0,0.1);
-}
-
-.status-default {
-    background-color: #e0e0e0; /* Light grey for default/planned */
-    color: #424242; /* Darker grey */
-    font-weight: var(--font-weight-bold);
-    padding: 5px 10px;
-    border-radius: 4px;
-    display: inline-block;
-    min-width: 90px;
-    text-align: center;
-    box-shadow: var(--shadow-xs);
-    transition: all 0.2s ease;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: none;
+    text-shadow: none;
 }
 
 /* Custom width for Goal Description column */
 .col-goal-description {
     width: 70%;
+    text-align: left; /* Explicitly left align description data */
+    border-right: 1px solid var(--table-border); /* Add visual separator */
 }
 
 /* Custom width for Status column and centering its content */
@@ -80,8 +75,9 @@
 }
 
 /* Center all table headers by default for better consistency */
-.table th {
-    text-align: center;
+.table th.col-goal-description,
+.table th.col-status {
+    text-align: left;
 }
 
 /* Enforce fixed table layout (already in style.css but good to be explicit if needed) */

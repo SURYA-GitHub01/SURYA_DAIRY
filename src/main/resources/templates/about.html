@@ -1,90 +1,118 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::head}, ~{::main})}">
+<head>
+    <title>About</title>
+</head>
 <body>
-<div th:fragment="content">
-    <div class="about-container">
-        <h1 class="mb-4">SURYA SIVAKUMAR</h1>
-        <p class="text-muted mb-4 contact-info-line">
-            <i class="fas fa-phone-alt"></i> +91 7010930093 | <i class="fas fa-map-marker-alt"></i> Tamil Nadu, India<br>
-            <i class="fas fa-envelope"></i> suryasivakumar11042004@gmail.com | <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> | <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </p>
+    <main th:fragment="content">
+        <div class="modern-profile-container">
 
-        <div class="about-section">
-            <h2>SKILLS</h2>
-            <div class="skills-category">
-                <h3>Technical Skills:</h3>
-                <ul class="skills-list">
-                    <li>Java</li>
-                    <li>Spring Boot</li>
-                    <li>MySQL</li>
-                    <li>Problem Solving</li>
-                </ul>
-            </div>
-            <div class="skills-category">
-                <h3>Developer Tools:</h3>
-                <ul class="skills-list">
-                    <li>Git/GitHub</li>
-                    <li>IntelliJ IDEA</li>
-                    <li>Postman</li>
-                    <li>MySQL Workbench</li>
-                </ul>
-            </div>
+            <!-- Full-width Hero Section -->
+            <header class="profile-hero">
+                <h1 class="hero-name">SURYA SIVAKUMAR</h1>
+                <p class="hero-title">Software Engineer | Backend Developer</p>
+                <div class="hero-contact-bar">
+                    <a href="mailto:suryasivakumar11042004@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="tel:+917010930093" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+                    <a href="#" aria-label="Location"><i class="fas fa-map-marker-alt"></i> Tamil Nadu, India</a>
+                </div>
+            </header>
+
+            <!-- Grid-based Main Content -->
+            <main class="profile-content-grid">
+
+                <!-- Skills Section -->
+                <section class="grid-card skills-card">
+                    <h2 class="card-title">Skills</h2>
+                    <div class="skill-tag-cloud">
+                        <span class="skill-tag primary">Java</span>
+                        <span class="skill-tag primary">Spring Boot</span>
+                        <span class="skill-tag primary">MySQL</span>
+                        <span class="skill-tag primary">Oracle</span>
+                        <span class="skill-tag primary">Tomcat</span>
+
+                    </div>
+                </section>
+
+                <!-- Experience Section -->
+                <section class="grid-card experience-card">
+                    <h2 class="card-title">Experience</h2>
+                    <div>
+                        <div class="timeline-item">
+                            <div class="exp-timeline-item">
+                                <div>
+                                    <h3 class="exp-title">Backend Development Intern</h3>
+                                    <p class="exp-company">aTalent</p>
+                                </div>
+                                <p class="exp-date">Sept 2025 - <span class="present-date">Present</span></p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="exp-timeline-item">
+                                <div>
+                                    <h3 class="exp-title">Java Technology Stack Intern</h3>
+                                    <p class="exp-company">Infosys Springboard</p>
+                                </div>
+                                <p class="exp-date">Oct 2024 - Dec 2024</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="exp-timeline-item">
+                                <div>
+                                    <h3 class="exp-title">Backend Development Intern</h3>
+                                    <p class="exp-company">Iyarkai Tech Lab</p>
+                                </div>
+                                <p class="exp-date">July 2024 - Aug 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section class="grid-card education-card">
+                    <h2 class="card-title">Education</h2>
+                    <div class="edu-timeline">
+                        <div class="timeline-item">
+                            <div class="edu-item">
+                                <div class="edu-heading-line">
+                                    <h3 class="edu-degree">B.E in Computer Science</h3>
+                                    <p class="edu-date-right">May 2025</p>
+                                </div>
+                                <p class="edu-school">Jansons Institute Of Technology</p>
+                                <p class="edu-details">CGPA: 8.1/10</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="edu-item">
+                                <div class="edu-heading-line">
+                                    <h3 class="edu-degree">HSC, Brindhavan Higher Secondary School</h3>
+                                    <p class="edu-date-right">2020 - 2021</p>
+                                </div>
+                                <p class="edu-school">Percentage: 85%</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Language Section -->
+                <section class="grid-card language-card">
+                    <h2 class="card-title">Languages</h2>
+                    <div class="lang-items">
+                        <div class="lang-item">
+                            <p class="lang-name">English</p>
+                            <p class="lang-level">Professional</p>
+                        </div>
+                        <div class="lang-item">
+                            <p class="lang-name">Tamil</p>
+                            <p class="lang-level">Native</p>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
         </div>
-
-        <div class="about-section">
-            <h2>EDUCATION</h2>
-            <div class="education-entry">
-                <div class="education-header">
-                    <p class="education-degree"><strong>B.E in Computer Science</strong></p>
-                    <p class="education-date"><i class="far fa-calendar-alt"></i> May 2025</p>
-                </div>
-                <p class="institution-details">Jansons Institute Of Technology | CGPA: 8.1/10</p>
-            </div>
-
-            <div class="education-entry">
-                <div class="education-header">
-                    <p class="education-degree"><strong>HSC, Brindhavan Higher Secondary School</strong></p>
-                    <p class="education-date"><i class="far fa-calendar-alt"></i> 2020 - 2021</p>
-                </div>
-                <p class="institution-details">Percentage: 85%</p>
-            </div>
-        </div>
-
-        <div class="about-section">
-            <h2>EXPERIENCE</h2>
-            <div class="experience-entry">
-                <div class="experience-header">
-                    <p class="experience-role"><strong>Backend Development Intern</strong></p>
-                    <p class="experience-date"><i class="far fa-calendar-alt"></i> Sept 2025 - Present</p>
-                </div>
-                <p class="company-location"><i class="fas fa-building"></i> aTalent TamilNadu | <i class="fas fa-map-marker-alt"></i> OnSite</p>
-            </div>
-
-            <div class="experience-entry">
-                <div class="experience-header">
-                    <p class="experience-role"><strong>Java Technology Stack Intern</strong></p>
-                    <p class="experience-date"><i class="far fa-calendar-alt"></i> Oct 2024 - Dec 2024</p>
-                </div>
-                <p class="company-location"><i class="fas fa-building"></i> Infosys Springboard | <i class="fas fa-map-marker-alt"></i> Remote</p>
-            </div>
-
-            <div class="experience-entry">
-                <div class="experience-header">
-                    <p class="experience-role"><strong>Backend Development Intern</strong></p>
-                    <p class="experience-date"><i class="far fa-calendar-alt"></i> July 2024 - Aug 2024</p>
-                </div>
-                <p class="company-location"><i class="fas fa-building"></i> Iyarkai Tech Lab Chennai | <i class="fas fa-map-marker-alt"></i> Remote</p>
-            </div>
-        </div>
-
-        <div class="about-section">
-            <h2>LANGUAGE</h2>
-            <ul>
-                <li>English - Professional</li>
-                <li>Tamil - Native</li>
-            </ul>
-        </div>
-    </div>
-</div>
+    </main>
 </body>
 </html>

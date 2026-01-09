@@ -1,0 +1,21 @@
+.card-header {
+    font-weight: bold;
+}
+
+.card-title {
+    color: #1e304f;
+}
+
+.card-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #dc3545; /* Red color for emergency fund to signify importance */
+}
+
+.table {
+    margin-top: 1rem;
+}
+
+.emergency-fund-amount {
+    color: #dc3545; /* Red color for emergency fund to signify importance */
+}

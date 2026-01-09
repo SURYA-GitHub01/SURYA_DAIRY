@@ -5,7 +5,7 @@
 </head>
 <body>
     <main th:fragment="content">
-        <div class="card mb-4">
+        <div class="card mb-4 card-short-term-goals">
             <div class="card-header">
                 Short-Term Goals
             </div>
@@ -25,16 +25,18 @@
                             <tr th:each="goal : ${shortTermGoals}">
                                 <td class="col-goal-description" th:text="${goal.description}"></td>
                                 <td class="col-status">
-                                    <span th:class="${goal.status == 'completed' ? 'status-completed' : (goal.status == 'in progress' ? 'status-in-progress' : (goal.status == 'planned' ? 'status-planned' : 'status-default'))}" th:text="${goal.status}"></span>
+                                    <span th:class="${goal.status.toLowerCase() == 'completed' ? 'status-completed' : (goal.status.toLowerCase() == 'in progress' ? 'status-in-progress' : (goal.status.toLowerCase() == 'planned' ? 'status-planned' : 'status-default'))}"
+                                          th:text="${goal.status.toLowerCase() == 'completed' ? 'Completed' : (goal.status.toLowerCase() == 'in progress' ? 'In Progress' : (#strings.capitalize(goal.status.toLowerCase())))}"></span>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+            <div class="card-footer text-muted">
+            </div>
         </div>
-
-        <div class="card mb-4">
+        <div class="card mb-4 card-long-term-goals">
             <div class="card-header">
                 Long-Term Goals
             </div>
@@ -54,14 +56,16 @@
                             <tr th:each="goal : ${longTermGoals}">
                                 <td class="col-goal-description" th:text="${goal.description}"></td>
                                 <td class="col-status">
-                                    <span th:class="${goal.status == 'completed' ? 'status-completed' : (goal.status == 'in progress' ? 'status-in-progress' : (goal.status == 'planned' ? 'status-planned' : 'status-default'))}" th:text="${goal.status}"></span>
+                                    <span th:class="${goal.status.toLowerCase() == 'completed' ? 'status-completed' : (goal.status.toLowerCase() == 'in progress' ? 'status-in-progress' : (goal.status.toLowerCase() == 'planned' ? 'status-planned' : 'status-default'))}"
+                                          th:text="${goal.status.toLowerCase() == 'completed' ? 'Completed' : (goal.status.toLowerCase() == 'in progress' ? 'In Progress' : (#strings.capitalize(goal.status.toLowerCase())))}"></span>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+            <div class="card-footer text-muted">
+            </div>
         </div>
-    </main>
 </body>
 </html>

@@ -1,13 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::head}, ~{::main})}">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+</head>
 <body>
-    <div th:fragment="content">
-        <div class="card index-card-prominent">
-            <div class="card-body">
-                <h1>Welcome, Surya SivaKumar !</h1>
+<main th:fragment="content">
+    <div class="container-fluid">
+        <!-- Welcome Header -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card welcome-card">
+                    <div class="card-body">
+                        <h1 class="welcome-title">WELCOME, SURYA SIVAKUMAR!</h1>
+                        <p class="welcome-text">Here's a summary of your virtual diary.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Salary and Savings -->
+        <div class="row mt-1">
+            <div class="col-md-6">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-money-bill-wave fa-2x stat-icon mr-3"></i>
+                            <h5 class="card-title mb-0">Total Salary</h5>
+                        </div>
+                        <p class="card-text total-salary-amount" th:text="${'₹' + #numbers.formatDecimal(totalSalary, 0, 0)}"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-university fa-2x stat-icon mr-3"></i>
+                            <h5 class="card-title mb-0">Total Savings</h5>
+                        </div>
+                        <p class="card-text total-savings-amount" th:text="${'₹' + #numbers.formatDecimal(totalSavings, 0, 0)}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Total Projects and Current Company -->
+        <div class="row mt-1">
+            <div class="col-md-6">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-folder-open fa-2x stat-icon mr-3"></i>
+                            <h5 class="card-title mb-0">Total Projects</h5>
+                        </div>
+                        <p class="card-text total-projects-amount" th:text="${totalProjects}"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card stat-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-building fa-2x stat-icon mr-3"></i>
+                            <h5 class="card-title mb-0">Current Company</h5>
+                        </div>
+                        <p class="card-text current-company-name" th:text="${currentCompany}"></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</main>
 </body>
 </html>

@@ -1,0 +1,82 @@
+.welcome-card {
+    background: linear-gradient(135deg, #14213d, #2a3c5a);
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    /* No direct color on welcome-card as children will have explicit colors */
+}
+
+.welcome-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.03em;
+    color: white; /* Explicitly set to white */
+}
+
+.welcome-text {
+    font-size: 1.3rem;
+    color: white; /* Explicitly set to white */
+    font-weight: 300;
+    margin: 8px 0 16px 0;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 0.8rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease-in-out;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.stat-icon {
+    font-size: 1.8rem !important; 
+}
+
+.stat-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #6c757d;
+    margin-left: 0.8rem;
+}
+
+.stat-card .card-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1e304f;
+}
+
+/* Icon colors - kept as is, they are already defined for each icon */
+.fa-money-bill-wave {
+    color: #28a745; /* Green */
+}
+.fa-university {
+    color: #17a2b8; /* Info Blue */
+}
+.fa-folder-open {
+    color: #ffc107; /* Warning Yellow */
+}
+.fa-building {
+    color: #fd7e14; /* Orange */
+}
+
+/* Specific colors for amounts */
+.total-salary-amount {
+    color: #28a745 !important; /* Green */
+}
+.total-savings-amount {
+    color: #17a2b8 !important; /* Info Blue */
+}
+.total-projects-amount {
+    color: #ffc107 !important; /* Warning Yellow */
+}
+.current-company-name {
+    color: #fd7e14 !important; /* Orange */
+}
