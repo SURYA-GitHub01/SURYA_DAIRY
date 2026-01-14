@@ -29,12 +29,9 @@ public class IndexController {
         List<SalaryEntry> salaryEntries = new ArrayList<>();
         salaryEntries.add(new SalaryEntry("aTalent", 8000, "September", 2025));
         salaryEntries.add(new SalaryEntry("aTalent", 8000, "October", 2025));
-        salaryEntries.add(new SalaryEntry("aTalent", 8500, "November", 2025));
-        salaryEntries.add(new SalaryEntry("aTalent", 8200, "December", 2025));
-        salaryEntries.add(new SalaryEntry("aTalent", 9000, "January", 2026));
-        salaryEntries.add(new SalaryEntry("aTalent", 9000, "February", 2026));
-        salaryEntries.add(new SalaryEntry("aTalent", 9100, "March", 2026));
-        salaryEntries.add(new SalaryEntry("aTalent", 9100, "April", 2026));
+        salaryEntries.add(new SalaryEntry("aTalent", 8000, "November", 2025));
+        salaryEntries.add(new SalaryEntry("aTalent", 8000, "December", 2025));
+
 
         // Savings
         List<Savings> savingsList = new ArrayList<>();

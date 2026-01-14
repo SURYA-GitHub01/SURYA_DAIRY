@@ -24,7 +24,6 @@
 }
 
 .stat-card {
-    text-align: center;
     padding: 0.8rem 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -38,44 +37,32 @@
 
 .stat-icon {
     font-size: 1.8rem !important; 
+    color: #495057 !important; /* Rich, professional dark gray */
 }
 
 .stat-card .card-title {
-    font-size: 1.1rem;
+    font-size: 1.5rem !important;
     font-weight: 600;
-    color: #6c757d;
-    margin-left: 0.8rem;
+    color: #1e304f !important; /* Menu bar color */
 }
 
 .stat-card .card-text {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #1e304f;
+    color: #495057;
 }
 
-/* Icon colors - kept as is, they are already defined for each icon */
-.fa-money-bill-wave {
-    color: #28a745; /* Green */
-}
-.fa-university {
-    color: #17a2b8; /* Info Blue */
-}
-.fa-folder-open {
-    color: #ffc107; /* Warning Yellow */
-}
-.fa-building {
-    color: #fd7e14; /* Orange */
-}
+
 
 /* Specific colors for amounts */
 .total-salary-amount {
-    color: #28a745 !important; /* Green */
-}
-.total-savings-amount {
     color: #17a2b8 !important; /* Info Blue */
 }
+.total-savings-amount {
+    color: #28a745 !important; /* Green */
+}
 .total-projects-amount {
-    color: #ffc107 !important; /* Warning Yellow */
+    color: #fd7e14 !important; /* Orange - matches Current Company */
 }
 .current-company-name {
     color: #fd7e14 !important; /* Orange */

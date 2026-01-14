@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::head}, ~{::main})}">
 <head>
     <title>Home</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" th:href="@{/css/index.css(v=1.1)}" />
 </head>
 <body>
 <main th:fragment="content">
@@ -13,7 +13,7 @@
                 <div class="card welcome-card">
                     <div class="card-body">
                         <h1 class="welcome-title">WELCOME, SURYA SIVAKUMAR!</h1>
-                        <p class="welcome-text">Here's a summary of your virtual diary.</p>
+
                     </div>
                 </div>
             </div>
@@ -24,22 +24,26 @@
             <div class="col-md-6">
                 <div class="card stat-card">
                     <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
+                        <div class="d-flex justify-content-start">
                             <i class="fas fa-money-bill-wave fa-2x stat-icon mr-3"></i>
-                            <h5 class="card-title mb-0">Total Salary</h5>
+                            <div class="d-flex flex-column">
+                                <h5 class="card-title mb-1">Total Salary</h5>
+                                <p class="card-text total-salary-amount" th:text="${'₹' + #numbers.formatDecimal(totalSalary, 1, 'COMMA', 0, 'POINT')}"></p>
+                            </div>
                         </div>
-                        <p class="card-text total-salary-amount" th:text="${'₹' + #numbers.formatDecimal(totalSalary, 0, 0)}"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="card stat-card">
                     <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
+                        <div class="d-flex justify-content-start">
                             <i class="fas fa-university fa-2x stat-icon mr-3"></i>
-                            <h5 class="card-title mb-0">Total Savings</h5>
+                            <div class="d-flex flex-column">
+                                <h5 class="card-title mb-1">Total Savings</h5>
+                                <p class="card-text total-savings-amount" th:text="${'₹' + #numbers.formatDecimal(totalSavings, 1, 'COMMA', 0, 'POINT')}"></p>
+                            </div>
                         </div>
-                        <p class="card-text total-savings-amount" th:text="${'₹' + #numbers.formatDecimal(totalSavings, 0, 0)}"></p>
                     </div>
                 </div>
             </div>
@@ -50,22 +54,26 @@
             <div class="col-md-6">
                 <div class="card stat-card">
                     <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
+                        <div class="d-flex justify-content-start">
                             <i class="fas fa-folder-open fa-2x stat-icon mr-3"></i>
-                            <h5 class="card-title mb-0">Total Projects</h5>
+                            <div class="d-flex flex-column">
+                                <h5 class="card-title mb-1">Total Projects</h5>
+                                <p class="card-text total-projects-amount" th:text="${#numbers.formatDecimal(totalProjects, 1, 'COMMA', 0, 'POINT')}"></p>
+                            </div>
                         </div>
-                        <p class="card-text total-projects-amount" th:text="${totalProjects}"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="card stat-card">
                     <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
+                        <div class="d-flex justify-content-start">
                             <i class="fas fa-building fa-2x stat-icon mr-3"></i>
-                            <h5 class="card-title mb-0">Current Company</h5>
+                            <div class="d-flex flex-column">
+                                <h5 class="card-title mb-1">Current Company</h5>
+                                <p class="card-text current-company-name" th:text="${currentCompany}"></p>
+                            </div>
                         </div>
-                        <p class="card-text current-company-name" th:text="${currentCompany}"></p>
                     </div>
                 </div>
             </div>
