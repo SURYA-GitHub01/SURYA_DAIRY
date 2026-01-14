@@ -56,10 +56,10 @@
 
 /* Specific colors for amounts */
 .total-salary-amount {
-    color: #17a2b8 !important; /* Info Blue */
+    color: green !important; /* Green from savings page */
 }
 .total-savings-amount {
-    color: #28a745 !important; /* Green */
+    color: green !important; /* Green from savings page */
 }
 .total-projects-amount {
     color: #fd7e14 !important; /* Orange - matches Current Company */

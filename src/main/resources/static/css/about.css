@@ -15,6 +15,10 @@
     color: #52a7e7; /* Light blue from original primary-light */
 }
 
+.highlight-title {
+    color: #87CEEB; /* Sky blue color */
+}
+
 .card-title {
     color: var(--sidebar-bg);
     border: none !important;

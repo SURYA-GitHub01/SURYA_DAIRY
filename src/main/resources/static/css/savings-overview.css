@@ -8,7 +8,7 @@
 }
 
 .savings-amount {
-    color: #28a745 !important; /* Green */
+    color: green !important; /* Green from savings page */
 }
 
 .emergency-fund-amount {

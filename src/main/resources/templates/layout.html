@@ -10,8 +10,8 @@
     <link rel="stylesheet" th:if="${view == 'goals'}" th:href="@{/css/goals.css}">
     <link rel="stylesheet" th:if="${view == 'savings'}" th:href="@{/css/savings.css}">
     <link rel="stylesheet" th:if="${view == 'emergency-fund'}" th:href="@{/css/emergency-fund.css}">
-    <link rel="stylesheet" th:if="${view == 'savings-overview'}" th:href="@{/css/savings-overview.css}">
-    <link rel="stylesheet" th:if="${view == 'index'}" th:href="@{/css/index.css(v=2.0)}">
+    <link rel="stylesheet" th:if="${view == 'savings-overview'}" th:href="@{/css/savings-overview.css(v=2.1)}">
+    <link rel="stylesheet" th:if="${view == 'index'}" th:href="@{/css/index.css(v=2.3)}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -20,14 +20,13 @@
     <h3><i class="fas fa-book mr-2"></i>Surya's Dairy</h3>
     <ul class="nav flex-column">
         <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home mr-2"></i>Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/projects"><i class="fas fa-folder mr-2"></i>Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="/salary"><span class="mr-2">₹</span>Salary</a></li>
-
         <li class="nav-item"><a class="nav-link" href="/about"><i class="fas fa-user mr-2"></i>About</a></li>
-        <li class="nav-item"><a class="nav-link" href="/goals"><i class="fas fa-bullseye mr-2"></i>Goals</a></li>
+        <li class="nav-item"><a class="nav-link" href="/salary"><span class="mr-2">₹</span>Salary</a></li>
         <li class="nav-item"><a class="nav-link" href="/savings"><i class="fas fa-university mr-2"></i>Savings</a></li>
         <li class="nav-item"><a class="nav-link" href="/emergency-fund"><i class="fas fa-first-aid mr-2"></i>Emergency Fund</a></li>
         <li class="nav-item"><a class="nav-link" href="/savings-overview"><i class="fas fa-chart-pie mr-2"></i>Savings Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/goals"><i class="fas fa-bullseye mr-2"></i>Goals</a></li>
+        <li class="nav-item"><a class="nav-link" href="/projects"><i class="fas fa-folder mr-2"></i>Projects</a></li>
     </ul></div>
 
 <div class="main-content">

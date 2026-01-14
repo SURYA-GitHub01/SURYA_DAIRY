@@ -532,7 +532,7 @@ textarea.form-control {
 
 /* Custom styling for salary amount default color */
 .salary-amount-default {
-    color: var(--primary-color);
+    color: #006400; /* Dark Green */
 }
 
 /* Custom styling for highlighted year */
