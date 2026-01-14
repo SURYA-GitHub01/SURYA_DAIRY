@@ -1,35 +1,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::head}, ~{::main})}">
 <head>
     <title>Savings Overview</title>
-    <link rel="stylesheet" th:href="@{/css/savings-overview.css}" />
+    <link rel="stylesheet" th:href="@{/css/savings-overview.css(v=1.7)}" />
 </head>
 <body>
 <main th:fragment="content">
-    <div class="overview-container">
-        <div class="row d-flex">
-            <div class="col-md-4 h-100">
-                <div class="card kpi-card savings">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Savings</h5>
-                        <p class="card-text savings-amount" th:text="${'₹' + #numbers.formatDecimal(totalSavings, 0, 0)}"></p>
-                    </div>
-                </div>
+    <div class="container-fluid">
+        <div class="card mb-4">
+            <div class="card-header">
+                Total Savings
             </div>
-            <div class="col-md-4 h-100">
-                <div class="card kpi-card emergency-fund">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Emergency Fund</h5>
-                        <p class="card-text emergency-fund-amount" th:text="${'₹' + #numbers.formatDecimal(totalEmergencyFund, 0, 0)}"></p>
-                    </div>
-                </div>
+            <div class="card-body">
+                <p class="card-text savings-amount" th:text="${'₹' + #numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}"></p>
             </div>
-            <div class="col-md-4 h-100">
-                <div class="card kpi-card grand-total">
-                    <div class="card-body">
-                        <h5 class="card-title">Grand Total</h5>
-                        <p class="card-text grand-total-amount" th:text="${'₹' + #numbers.formatDecimal(grandTotal, 0, 0)}"></p>
-                    </div>
-                </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                Total Emergency Fund
+            </div>
+            <div class="card-body">
+                <p class="card-text emergency-fund-amount" th:text="${'₹' + #numbers.formatDecimal(totalEmergencyFund, 0, 'COMMA', 0, 'POINT')}"></p>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                Grand Total
+            </div>
+            <div class="card-body">
+                <p class="card-text grand-total-amount" th:text="${'₹' + #numbers.formatDecimal(grandTotal, 0, 'COMMA', 0, 'POINT')}"></p>
             </div>
         </div>
     </div>
