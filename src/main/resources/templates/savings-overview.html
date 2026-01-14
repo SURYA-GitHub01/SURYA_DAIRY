@@ -5,7 +5,7 @@
 </head>
 <body>
 <main th:fragment="content">
-    <div class="container-fluid">
+
         <div class="card mb-4">
             <div class="card-header">
                 Total Savings
@@ -30,7 +30,6 @@
                 <p class="card-text grand-total-amount" th:text="${'₹' + #numbers.formatDecimal(grandTotal, 0, 'COMMA', 0, 'POINT')}"></p>
             </div>
         </div>
-    </div>
 </main>
 </body>
 </html>
