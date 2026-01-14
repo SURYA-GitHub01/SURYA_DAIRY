@@ -1,7 +1,4 @@
 .overview-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 2rem 0;
 }
 
@@ -10,7 +7,9 @@
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
     margin: 0 1rem; /* Add horizontal margin */
-    text-align: center;
+    display: flex; /* Make card a flex container */
+    flex-direction: column; /* Stack content vertically */
+    height: 100%; /* Ensure card takes full height of its column */
 }
 
 .kpi-card:hover {
@@ -32,18 +31,22 @@
 
 .kpi-card .card-body {
     padding: 2rem;
+    flex-grow: 1; /* Allow card body to expand and fill available space */
+    text-align: left; /* Align text within card body to the left */
 }
 
 .kpi-card .card-title {
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Adjusted for consistency */
     font-weight: 600;
     color: #6c757d;
     margin-bottom: 1rem;
+    text-align: left; /* Ensure title is left-aligned */
 }
 
 .kpi-card .card-text {
-    font-size: 2.5rem;
+    font-size: 1.8rem; /* Adjusted for consistency */
     font-weight: 700;
+    text-align: left; /* Ensure text is left-aligned */
 }
 
 .savings-amount {

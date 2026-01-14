@@ -1,29 +1,27 @@
 package com.example.surya_virtual_diary.Controller;
 
 import com.example.surya_virtual_diary.models.Savings;
+import com.example.surya_virtual_diary.service.SavingsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class SavingsController {
 
-    private static long savingsIdCounter = 0;
-    private List<Savings> savingsList = new ArrayList<>();
+    private final SavingsService savingsService;
 
-    public SavingsController() {
-        // Add some initial data
-        savingsList.add(new Savings(++savingsIdCounter, "Initial deposit", 1000.0, LocalDate.of(2024, 1, 15)));
-        savingsList.add(new Savings(++savingsIdCounter, "Monthly savings", 250.0, LocalDate.of(2024, 2, 1)));
-        savingsList.add(new Savings(++savingsIdCounter, "Bonus", 500.0, LocalDate.of(2024, 2, 20)));
+    @Autowired
+    public SavingsController(SavingsService savingsService) {
+        this.savingsService = savingsService;
     }
 
     @GetMapping("/savings")
     public String savings(Model model) {
+        List<Savings> savingsList = savingsService.getSavings();
         double totalSavings = savingsList.stream().mapToDouble(Savings::getAmount).sum();
         model.addAttribute("savingsList", savingsList);
         model.addAttribute("totalSavings", totalSavings);

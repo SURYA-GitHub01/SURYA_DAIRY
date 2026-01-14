@@ -1,11 +1,12 @@
 package com.example.surya_virtual_diary.Controller;
 
 import com.example.surya_virtual_diary.models.SalaryEntry;
+import com.example.surya_virtual_diary.service.SalaryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -14,14 +15,17 @@ import java.util.stream.Collectors;
 @Controller
 public class SalaryController {
 
+    private final SalaryService salaryService;
+
+    @Autowired
+    public SalaryController(SalaryService salaryService) {
+        this.salaryService = salaryService;
+    }
+
     @GetMapping("/salary")
     public String salary(Model model) {
-        List<SalaryEntry> salaryEntries = new ArrayList<>();
-        salaryEntries.add(new SalaryEntry("aTalent", 8000, "September", 2025));
-        salaryEntries.add(new SalaryEntry("aTalent", 8000, "October", 2025));
-        salaryEntries.add(new SalaryEntry("aTalent", 8000, "November", 2025)); // Increased amount
-        salaryEntries.add(new SalaryEntry("aTalent", 8000, "December", 2025)); // Decreased amount
-        salaryEntries.add(new SalaryEntry("aTalent", 8000, "January", 2026)); // New year, increased amount
+        List<SalaryEntry> salaryEntries = salaryService.getSalaryEntries();
+        
         // Sort by company name and then by year/month for consistent grouping and comparison
         salaryEntries.sort(Comparator
                 .comparing(SalaryEntry::getCompanyName)
