@@ -15,7 +15,7 @@ public class SavingsService {
         private static long savingsIdCounter = 0;
 
     static {
-        savings.add(new Savings(++savingsIdCounter, "Backup Amount", 5000.0, LocalDate.of(2026, 1, 1)));
+        savings.add(new Savings(++savingsIdCounter, "Backup Amount", 50000.0, LocalDate.of(2026, 1, 1)));
 
     }
 

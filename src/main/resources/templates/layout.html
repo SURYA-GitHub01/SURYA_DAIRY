@@ -12,7 +12,10 @@
     <link rel="stylesheet" th:if="${view == 'emergency-fund'}" th:href="@{/css/emergency-fund.css}">
     <link rel="stylesheet" th:if="${view == 'savings-overview'}" th:href="@{/css/savings-overview.css(v=2.1)}">
     <link rel="stylesheet" th:if="${view == 'index'}" th:href="@{/css/index.css(v=2.3)}">
+    <link rel="stylesheet" th:if="${view == 'expense'}" th:href="@{/css/expense.css}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
@@ -22,6 +25,7 @@
         <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home mr-2"></i>Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/about"><i class="fas fa-user mr-2"></i>About</a></li>
         <li class="nav-item"><a class="nav-link" href="/salary"><span class="mr-2">₹</span>Salary</a></li>
+        <li class="nav-item"><a class="nav-link" href="/expense"><i class="fas fa-money-bill-wave mr-2"></i>Major Expenses</a></li>
         <li class="nav-item"><a class="nav-link" href="/savings"><i class="fas fa-university mr-2"></i>Savings</a></li>
         <li class="nav-item"><a class="nav-link" href="/emergency-fund"><i class="fas fa-first-aid mr-2"></i>Emergency Fund</a></li>
         <li class="nav-item"><a class="nav-link" href="/savings-overview"><i class="fas fa-chart-pie mr-2"></i>Savings Overview</a></li>

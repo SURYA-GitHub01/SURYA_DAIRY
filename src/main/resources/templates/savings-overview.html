@@ -11,7 +11,7 @@
                 Total Savings
             </div>
             <div class="card-body">
-                <p class="card-text savings-amount" th:text="${'₹' + #numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}"></p>
+                <p class="card-text savings-amount" th:text="${'₹ ' + #numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}"></p>
             </div>
         </div>
         <div class="card mb-4">
@@ -19,7 +19,7 @@
                 Total Emergency Fund
             </div>
             <div class="card-body">
-                <p class="card-text emergency-fund-amount" th:text="${'₹' + #numbers.formatDecimal(totalEmergencyFund, 0, 'COMMA', 0, 'POINT')}"></p>
+                <p class="card-text emergency-fund-amount" th:text="${'₹ ' + #numbers.formatDecimal(totalEmergencyFund, 0, 'COMMA', 0, 'POINT')}"></p>
             </div>
         </div>
         <div class="card mb-4">
@@ -27,7 +27,7 @@
                 Grand Total
             </div>
             <div class="card-body">
-                <p class="card-text grand-total-amount" th:text="${'₹' + #numbers.formatDecimal(grandTotal, 0, 'COMMA', 0, 'POINT')}"></p>
+                <p class="card-text grand-total-amount" th:text="${'₹ ' + #numbers.formatDecimal(grandTotal, 0, 'COMMA', 0, 'POINT')}"></p>
             </div>
         </div>
 </main>

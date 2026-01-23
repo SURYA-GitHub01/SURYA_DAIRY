@@ -11,7 +11,7 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">Total Emergency Fund</h5>
-            <p class="card-text" th:text="${'₹' + #numbers.formatDecimal(totalEmergencyFund, 0, 0)}"></p>
+            <p class="card-text" th:text="${'₹ ' + #numbers.formatDecimal(totalEmergencyFund, 0, 'COMMA', 0, 'POINT')}"></p>
         </div>
     </div>
     <div class="card mb-4">
@@ -35,7 +35,7 @@
                     <tr th:each="fund : ${emergencyFundList}">
                         <td th:text="${fund.description}"></td>
                         <td th:text="${#temporals.format(fund.date, 'dd-MM-yyyy')}"></td>
-                        <td class="emergency-fund-amount" th:text="${'₹' + #numbers.formatDecimal(fund.amount, 0, 0)}"></td>
+                        <td class="emergency-fund-amount" th:text="${'₹ ' + #numbers.formatDecimal(fund.amount, 0, 'COMMA', 0, 'POINT')}"></td>
                     </tr>
                     </tbody>
                 </table>

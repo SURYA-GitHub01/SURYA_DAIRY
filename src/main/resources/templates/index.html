@@ -28,7 +28,7 @@
                             <i class="fas fa-money-bill-wave fa-2x stat-icon mr-3"></i>
                             <div class="d-flex flex-column">
                                 <h5 class="card-title mb-1">Total Salary</h5>
-                                <p class="card-text total-salary-amount" th:text="${'₹' + #numbers.formatDecimal(totalSalary, 1, 'COMMA', 0, 'POINT')}"></p>
+                                <p class="card-text total-salary-amount" th:text="${'₹ ' + #numbers.formatDecimal(totalSalary, 0, 'COMMA', 0, 'POINT')}"></p>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                             <i class="fas fa-university fa-2x stat-icon mr-3"></i>
                             <div class="d-flex flex-column">
                                 <h5 class="card-title mb-1">Total Savings</h5>
-                                <p class="card-text total-savings-amount" th:text="${'₹' + #numbers.formatDecimal(totalSavings, 1, 'COMMA', 0, 'POINT')}"></p>
+                                <p class="card-text total-savings-amount" th:text="${'₹ ' + #numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}"></p>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                             <i class="fas fa-folder-open fa-2x stat-icon mr-3"></i>
                             <div class="d-flex flex-column">
                                 <h5 class="card-title mb-1">Total Projects</h5>
-                                <p class="card-text total-projects-amount" th:text="${#numbers.formatDecimal(totalProjects, 1, 'COMMA', 0, 'POINT')}"></p>
+                                <p class="card-text total-projects-amount" th:text="${#numbers.formatDecimal(totalProjects, 0, 'COMMA', 0, 'POINT')}"></p>
                             </div>
                         </div>
                     </div>
