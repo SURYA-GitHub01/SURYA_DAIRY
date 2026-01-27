@@ -7,150 +7,54 @@
 <main th:fragment="content">
     <div class="header">
         <h1>Dashboard</h1>
-        <div class="input-group search-bar">
-            <input type="text" class="form-control" placeholder="Search...">
-            <span class="input-group-text"><i class="fas fa-search"></i></span>
-        </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">My Cards</h5>
+    <div class="row g-4">
+        <!-- Balance Overview (Full Width) -->
+        <div class="col-12 mb-4">
+            <div class="card p-4 balance-overview-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="card-title text-white mb-0">Total Balance</h5>
                 </div>
-                <div class="card-body">
-                    <!-- Credit card visual -->
-                    <div class="credit-card">
-                        <div class="card-chip"></div>
-                        <div class="card-number">**** **** **** 1234</div>
-                        <div class="card-holder">Surya Sivakumar</div>
-                        <div class="card-logo"></div>
+                <h2 class="display-4 fw-bold text-success" th:text="'₹ ' + ${#numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h2>
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <p class="text-muted mb-1">Income</p>
+                        <h4 class="text-success" th:text="'₹ ' + ${#numbers.formatDecimal(totalSalary, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h4>
                     </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Recent Transaction</h5>
-                </div>
-                <div class="card-body transaction-list">
-                    <div class="item">
-                        <div class="icon"><i class="fas fa-shopping-cart"></i></div>
-                        <div>
-                            <div>Shopping</div>
-                            <div class="text-muted">Online store</div>
-                        </div>
-                        <div class="amount text-danger">-$80.00</div>
-                    </div>
-                    <div class="item">
-                        <div class="icon"><i class="fas fa-medkit"></i></div>
-                        <div>
-                            <div>Health</div>
-                            <div class="text-muted">Pharmacy</div>
-                        </div>
-                        <div class="amount text-danger">-$25.00</div>
+                    <div class="col-6">
+                        <p class="text-muted mb-1">Expense</p>
+                        <h4 class="text-danger" th:text="'₹ ' + ${#numbers.formatDecimal(totalExpenses, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h4>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Weekly Activity</h5>
+
+        <!-- Quick Stats (In a new row, side-by-side) -->
+        <div class="col-12">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card p-3 text-center stat-card">
+                        <i class="fas fa-money-bill-wave fa-2x text-primary mb-2"></i>
+                        <p class="text-muted mb-0">Total Expenses</p>
+                        <h5 class="text-danger" th:text="'₹ ' + ${#numbers.formatDecimal(totalExpenses, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h5>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <canvas id="weeklyActivityChart"></canvas>
+                <div class="col-md-4">
+                    <div class="card p-3 text-center stat-card">
+                        <i class="fas fa-arrow-alt-circle-up fa-2x text-success mb-2"></i>
+                        <p class="text-muted mb-0">Total Income</p>
+                        <h5 class="text-success" th:text="'₹ ' + ${#numbers.formatDecimal(totalSalary, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Expense Statistics</h5>
-                </div>
-                <div class="card-body">
-                    <canvas id="expenseChart"></canvas>
+                <div class="col-md-4">
+                    <div class="card p-3 text-center stat-card">
+                        <i class="fas fa-wallet fa-2x text-info mb-2"></i>
+                        <p class="text-muted mb-0">Total Savings</p>
+                        <h5 class="text-info" th:text="'₹ ' + ${#numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h5>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        // Weekly Activity Chart
-        const weeklyCtx = document.getElementById('weeklyActivityChart').getContext('2d');
-        new Chart(weeklyCtx, {
-            type: 'line',
-            data: {
-                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                datasets: [{
-                    label: 'Activity',
-                    data: [12, 19, 3, 5, 2, 3, 9],
-                    backgroundColor: 'rgba(30, 136, 229, 0.2)',
-                    borderColor: 'rgba(30, 136, 229, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            color: 'white'
-                        }
-                    },
-                    x: {
-                        ticks: {
-                            color: 'white'
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: 'white'
-                        }
-                    }
-                }
-            }
-        });
-
-        // Expense Statistics Chart
-        const expenseCtx = document.getElementById('expenseChart').getContext('2d');
-        new Chart(expenseCtx, {
-            type: 'pie',
-            data: {
-                labels: ['Shopping', 'Health', 'Food', 'Other'],
-                datasets: [{
-                    label: 'Expenses',
-                    data: [300, 50, 100, 75],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.5)',
-                        'rgba(54, 162, 235, 0.5)',
-                        'rgba(255, 206, 86, 0.5)',
-                        'rgba(75, 192, 192, 0.5)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: 'white'
-                        }
-                    }
-                }
-            }
-        });
-    </script>
 </main>
-</body>
-</html>

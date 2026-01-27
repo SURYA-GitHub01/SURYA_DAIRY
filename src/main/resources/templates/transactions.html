@@ -14,7 +14,7 @@
             <h5 class="card-title">Total Major Expenses</h5>
         </div>
         <div class="card-body">
-            <p class="card-text" th:text="'- ₹ ' + ${#numbers.formatDecimal(totalExpenses, 0, 'COMMA', 0, 'POINT')}"></p>
+            <p class="card-text text-danger" th:text="'- ₹ ' + ${#numbers.formatDecimal(totalExpenses, 0, 'COMMA', 0, 'POINT')}"></p>
         </div>
     </div>
 
