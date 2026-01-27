@@ -3,41 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Surya's Diary</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/dark-theme.css}">
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <link rel="stylesheet" th:if="${view == 'about'}" th:href="@{/css/about.css}">
-    <link rel="stylesheet" th:if="${view == 'goals'}" th:href="@{/css/goals.css}">
-    <link rel="stylesheet" th:if="${view == 'savings'}" th:href="@{/css/savings.css}">
-    <link rel="stylesheet" th:if="${view == 'emergency-fund'}" th:href="@{/css/emergency-fund.css}">
-    <link rel="stylesheet" th:if="${view == 'savings-overview'}" th:href="@{/css/savings-overview.css(v=2.1)}">
-    <link rel="stylesheet" th:if="${view == 'index'}" th:href="@{/css/index.css(v=2.3)}">
-    <link rel="stylesheet" th:if="${view == 'expense'}" th:href="@{/css/expense.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
 <div class="sidebar">
-    <h3><i class="fas fa-book mr-2"></i>Surya's Dairy</h3>
+    <h3>Surya's Diary</h3>
     <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home mr-2"></i>Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about"><i class="fas fa-user mr-2"></i>About</a></li>
-        <li class="nav-item"><a class="nav-link" href="/salary"><span class="mr-2">₹</span>Salary</a></li>
-        <li class="nav-item"><a class="nav-link" href="/expense"><i class="fas fa-money-bill-wave mr-2"></i>Major Expenses</a></li>
-        <li class="nav-item"><a class="nav-link" href="/savings"><i class="fas fa-university mr-2"></i>Savings</a></li>
-        <li class="nav-item"><a class="nav-link" href="/emergency-fund"><i class="fas fa-first-aid mr-2"></i>Emergency Fund</a></li>
-        <li class="nav-item"><a class="nav-link" href="/savings-overview"><i class="fas fa-chart-pie mr-2"></i>Savings Overview</a></li>
-        <li class="nav-item"><a class="nav-link" href="/goals"><i class="fas fa-bullseye mr-2"></i>Goals</a></li>
-        <li class="nav-item"><a class="nav-link" href="/projects"><i class="fas fa-folder mr-2"></i>Projects</a></li>
-    </ul></div>
-
-<div class="main-content">
-    <div class="container">
-        <div th:insert="~{__${view}__ :: content}"></div>
-    </div>
+        <li class="nav-item"><a class="nav-link active" href="/"><i class="fas fa-home"></i> &nbsp; Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="/transactions"><i class="fas fa-exchange-alt"></i> &nbsp; Transactions</a></li>
+        <li class="nav-item"><a class="nav-link" href="/accounts"><i class="fas fa-wallet"></i> &nbsp; Accounts</a></li>
+        <li class="nav-item"><a class="nav-link" href="/salary"><i class="fas fa-money-bill-wave"></i> &nbsp; Salary</a></li>
+        <li class="nav-item"><a class="nav-link" href="/investments"><i class="fas fa-chart-line"></i> &nbsp; Investments</a></li>
+        <li class="nav-item"><a class="nav-link" href="/credit-cards"><i class="fas fa-credit-card"></i> &nbsp; Credit Cards</a></li>
+        <li class="nav-item"><a class="nav-link" href="/loans"><i class="fas fa-hand-holding-usd"></i> &nbsp; Loans</a></li>
+        <li class="nav-item"><a class="nav-link" href="/services"><i class="fas fa-concierge-bell"></i> &nbsp; Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="/my-privileges"><i class="fas fa-user-shield"></i> &nbsp; My Privileges</a></li>
+        <li class="nav-item"><a class="nav-link" href="/settings"><i class="fas fa-cog"></i> &nbsp; Setting</a></li>
+    </ul>
 </div>
 
+<div class="main-content">
+    <div th:insert="~{__${view}__ :: content}"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
