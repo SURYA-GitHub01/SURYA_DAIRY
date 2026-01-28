@@ -1,0 +1,37 @@
+.transaction-list .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.transaction-list .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.transaction-list .amount {
+    margin-left: auto;
+    font-weight: 500;
+}
+
+.transaction-list-new .transaction-item-new,
+.upcoming-payments-list .payment-item {
+    transition: background-color 0.2s ease-in-out;
+}
+
+.transaction-list-new .transaction-item-new:hover,
+.upcoming-payments-list .payment-item:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.05);
+    border-radius: 8px;
+}
+
+.total-expense-amount {
+    font-size: 1.8rem !important; /* Increased font size for total expense amount */
+}

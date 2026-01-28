@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::head}, ~{::main})}">
 <head>
     <title>Accounts</title>
+    <link rel="stylesheet" th:href="@{/css/accounts.css}">
 </head>
 <body>
 <main th:fragment="content">
@@ -9,14 +10,14 @@
         <h1>Accounts</h1>
     </div>
 
-    <div class="row">
+    <div class="row g-4">
         <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-header">
                     <h5 class="card-title">Total Savings</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text text-success" th:text="'₹ ' + ${#numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}"></p>
+                    <h3 class="fw-bold text-success" th:text="'₹ ' + ${#numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}"></h3>
                 </div>
             </div>
         </div>
@@ -26,132 +27,87 @@
                     <h5 class="card-title">Total Emergency Fund</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text text-warning" th:text="'₹ ' + ${#numbers.formatDecimal(totalEmergencyFund, 0, 'COMMA', 0, 'POINT')}"></p>
+                    <h3 class="fw-bold text-warning" th:text="'₹ ' + ${#numbers.formatDecimal(totalEmergencyFund, 0, 'COMMA', 0, 'POINT')}"></h3>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="card mb-4">
-        <div class="card-header">
-            <h5 class="card-title">Savings Overview</h5>
-        </div>
-        <div class="card-body">
-            <canvas id="savingsOverviewChart"></canvas>
-            <h5 class="text-center mt-3">Grand Total: <span th:text="'₹ ' + ${#numbers.formatDecimal(grandTotal, 0, 'COMMA', 0, 'POINT')}"></span></h5>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            <h5 class="card-title">Savings History</h5>
-        </div>
-        <div class="card-body">
-            <div th:if="${savingsList.empty}" class="no-entries">
-                <p>No savings entries yet.</p>
-            </div>
-            <div th:unless="${savingsList.empty}" class="table-responsive">
-                <table class="table table-dark table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Date</th>
-                        <th>Amount</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="savings : ${savingsList}">
-                        <td th:text="${savings.description}"></td>
-                        <td th:text="${#temporals.format(savings.date, 'dd-MM-yyyy')}"></td>
-                        <td class="savings-amount text-success" th:text="'₹ ' + ${#numbers.formatDecimal(savings.amount, 0, 'COMMA', 0, 'POINT')}"></td>
-                    </tr>
-                    </tbody>
-                </table>
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title">Grand Total</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="fw-bold grand-total-amount" style="color: darkorange !important;" th:text="'₹ ' + ${#numbers.formatDecimal(grandTotal, 0, 'COMMA', 0, 'POINT')}"></h3>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="card mt-4">
-        <div class="card-header">
-            <h5 class="card-title">Emergency Fund History</h5>
-        </div>
-        <div class="card-body">
-            <div th:if="${emergencyFundList.empty}" class="no-entries">
-                <p>No emergency fund entries yet.</p>
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Savings History</h5>
+                </div>
+                <div class="card-body">
+                    <div th:if="${savingsList.empty}" class="no-entries">
+                        <p>No savings entries yet.</p>
+                    </div>
+                    <div th:unless="${savingsList.empty}" class="table-responsive">
+                        <table class="table table-dark table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="savings : ${savingsList}">
+                                <td th:text="${savings.description}"></td>
+                                <td th:text="${#temporals.format(savings.date, 'dd-MM-yyyy')}"></td>
+                                <td class="savings-amount text-success" th:text="'₹ ' + ${#numbers.formatDecimal(savings.amount, 0, 'COMMA', 0, 'POINT')}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div th:unless="${emergencyFundList.empty}" class="table-responsive">
-                <table class="table table-dark table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Date</th>
-                        <th>Amount</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="fund : ${emergencyFundList}">
-                        <td th:text="${fund.description}"></td>
-                        <td th:text="${#temporals.format(fund.date, 'dd-MM-yyyy')}"></td>
-                        <td class="emergency-fund-amount text-warning" th:text="'₹ ' + ${#numbers.formatDecimal(fund.amount, 0, 'COMMA', 0, 'POINT')}"></td>
-                    </tr>
-                    </tbody>
-                </table>
+        </div>
+    </div>
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="card-title">Emergency Fund History</h5>
+                </div>
+                <div class="card-body">
+                    <div th:if="${emergencyFundList.empty}" class="no-entries">
+                        <p>No emergency fund entries yet.</p>
+                    </div>
+                    <div th:unless="${emergencyFundList.empty}" class="table-responsive">
+                        <table class="table table-dark table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="fund : ${emergencyFundList}">
+                                <td th:text="${fund.description}"></td>
+                                <td th:text="${#temporals.format(fund.date, 'dd-MM-yyyy')}"></td>
+                                <td class="emergency-fund-amount text-warning" th:text="'₹ ' + ${#numbers.formatDecimal(fund.amount, 0, 'COMMA', 0, 'POINT')}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </main>
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    const savingsCtx = document.getElementById('savingsOverviewChart').getContext('2d');
-    new Chart(savingsCtx, {
-        type: 'pie',
-        data: {
-            labels: ['Total Savings', 'Total Emergency Fund'],
-            datasets: [{
-                label: 'Amount',
-                data: [/*[[${totalSavings}]]*/, /*[[${totalEmergencyFund}]]*/],
-                backgroundColor: [
-                    'rgba(30, 136, 229, 0.5)',
-                    'rgba(255, 99, 132, 0.5)'
-                ],
-                borderColor: [
-                    'rgba(30, 136, 229, 0)', /* Transparent border */
-                    'rgba(255, 99, 132, 0)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    labels: {
-                        color: 'white'
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: 'white'
-                    },
-                    grid: {
-                        color: '#444'
-                    }
-                },
-                y: {
-                    ticks: {
-                        color: 'white'
-                    },
-                    grid: {
-                        color: '#444'
-                    }
-                }
-            }
-        }
-    });
-    /*]]>*/
-</script>
 </body>
 </html>

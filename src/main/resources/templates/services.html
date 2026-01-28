@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::head}, ~{::main})}">
 <head>
     <title>Services</title>
+    <link rel="stylesheet" th:href="@{/css/services.css}">
 </head>
 <body>
 <main th:fragment="content">
@@ -9,35 +10,36 @@
         <h1>My Projects</h1>
     </div>
 
-    <div class="card">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-dark table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>S.No.</th>
-                        <th>Project Name</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                        <th>Company Name</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="project, projectStat : ${projects}">
-                        <td th:text="${projectStat.index + 1} + '.'"></td>
-                        <td th:text="${project.name}"></td>
-                        <td th:text="${project.formattedStartDate}"></td>
-                        <td th:text="${project.formattedEndDate}"
-                            th:classappend="${project.isCurrent() or project.isEndDateCurrentDay()} ? 'text-success' : ''"></td>
-                        <td th:text="${project.companyName}"
-                            th:classappend="${project.shouldHighlightCompanyName} ? 'text-info' : ''"></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="card-footer text-muted">
-            <h5 class="projects-total-count text-primary" th:text="'Total Projects: ' + ${totalProjects}"></h5>
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-dark table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Project Name</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Company Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="project, projectStat : ${projects}">
+                                <td th:text="${projectStat.index + 1} + '.'"></td>
+                                <td th:text="${project.name}"></td>
+                                <td th:text="${project.formattedStartDate}"></td>
+                                <td th:text="${project.formattedEndDate}"
+                                    th:classappend="${project.isCurrent() or project.isEndDateCurrentDay()} ? 'text-success' : ''"></td>
+                                <td th:text="${project.companyName}"
+                                    th:classappend="${project.shouldHighlightCompanyName} ? 'text-info' : ''"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                            </div>
         </div>
     </div>
 </main>

@@ -1,0 +1,164 @@
+.sidebar {
+    background-color: var(--sidebar-background);
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.sidebar h3 {
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+.sidebar .nav-link {
+    color: var(--text-color-secondary);
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.sidebar .nav-link.active,
+.sidebar .nav-link:hover {
+    color: var(--primary-color);
+    padding-left: 15px; /* Adjust padding for better alignment */
+    background-color: rgba(var(--primary-color-rgb), 0.1); /* Subtle background glow */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.sidebar .nav-link.active {
+    background-color: rgba(var(--primary-color-rgb), 0.2);
+    font-weight: 500;
+}
+
+.sidebar .nav-link.active:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.3); /* More pronounced glow on hover */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column; /* Arrange content vertically */
+    min-height: calc(100vh - 80px); /* Adjust height to fill viewport minus padding */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-success {
+    color: #4CAF50 !important;
+}
+
+.text-danger {
+    color: #F44336 !important;
+}
+
+.text-warning {
+    color: #FFC107 !important;
+}
+
+.text-info {
+    color: #00BCD4 !important;
+}
+
+.text-muted {
+    color: #8c9ea4 !important;
+}
+
+.table-dark th, .table-dark td {
+    color: var(--text-color); /* Ensure text is bright white */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color) !important;
+}
+
+.badge {
+    color: var(--text-color) !important;
+}
+
+/* Custom Scrollbar for Webkit */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2a2a2a; /* Darker track */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color); /* Primary color thumb */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color); /* Maintain primary color on hover */
+}
+
+.card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Softer, more prominent shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    border: 1px solid transparent; /* Start with transparent border */
+}
+
+.card:hover {
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow on hover */
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.sidebar h3.main-title {
+    color: var(--primary-color) !important; /* Use primary theme color for the main title */
+}
+
+/* New rule for table header background color */
+table.table-dark thead th {
+    background-color: black; /* Pure black for table headers background */
+    color: var(--primary-color) !important; /* Primary blue color for table header text */
+}
+
+/* New rule for table borders */
+.table-dark,
+.table-dark th,
+.table-dark td {
+    border: 1px solid var(--border-color);
+}

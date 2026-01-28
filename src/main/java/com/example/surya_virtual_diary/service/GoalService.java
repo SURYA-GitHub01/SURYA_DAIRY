@@ -15,7 +15,7 @@ public class GoalService {
 
     static {
         // Short-term goals
-        goals.add(new Goal(++goalIdCounter, "Full Time Job", "short-term", "In Progress"));
+        goals.add(new Goal(++goalIdCounter, "Full Time IT Job", "short-term", "In Progress"));
         goals.add(new Goal(++goalIdCounter, "Save 1 Lakh", "short-term", "Planned"));
         goals.add(new Goal(++goalIdCounter, "Kovil poojai", "short-term", "Planned"));
 
@@ -24,12 +24,9 @@ public class GoalService {
 
         // Long-term goals
         goals.add(new Goal(++goalIdCounter, "Built First Floor", "long-term", "Planned"));
-        goals.add(new Goal(++goalIdCounter, "Buy Bike", "long-term", "Planned"));
         goals.add(new Goal(++goalIdCounter, "Buy Gold Chain", "long-term", "Planned"));
-        goals.add(new Goal(++goalIdCounter, "Buy iphone", "long-term", "Planned"));
-        goals.add(new Goal(++goalIdCounter, "Buy Car", "long-term", "Planned"));
         goals.add(new Goal(++goalIdCounter, "Buy Gold Bar", "long-term", "Planned"));
-        goals.add(new Goal(++goalIdCounter, "Buy Silver Bar", "long-term", "Planned"));
+        goals.add(new Goal(++goalIdCounter, "Buy Silver Bar", "long-term", "Completed"));
     }
 
     public List<Goal> getGoals() {

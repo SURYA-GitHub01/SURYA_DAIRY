@@ -1,0 +1,39 @@
+.credit-card {
+    background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    height: 180px;
+}
+
+.card-chip {
+    width: 40px;
+    height: 30px;
+    background-color: #ffc107;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.card-number {
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.card-holder {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--text-color);
+}
+
+.card-logo {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 40px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}

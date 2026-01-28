@@ -1,0 +1,98 @@
+.search-bar {
+    width: 300px;
+}
+
+.search-bar input.form-control::placeholder {
+    color: var(--text-color-secondary) !important;
+}
+
+.search-bar .form-control {
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--text-color);
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+.search-bar .form-control:focus {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.25); /* Need to define primary-color-rgb in dark-theme.css */
+}
+
+.search-bar .input-group-text {
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--text-color-secondary);
+    border-radius: 8px;
+}
+
+.balance-overview-card {
+    background: linear-gradient(45deg, #1A237E, #283593); /* Deeper blue gradient */
+    color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    border: none;
+}
+
+.balance-overview-card .card-title {
+    font-size: 1.2rem; /* Slightly larger title */
+    font-weight: 700;
+}
+
+.balance-overview-card h2.display-4 {
+    margin-bottom: 0.2rem; /* Reduce space after large amount */
+    line-height: 1.1;
+}
+
+.balance-overview-card p.text-muted {
+    font-size: 0.8rem; /* Smaller text for description */
+    font-weight: 400; /* Normal weight */
+}
+
+.balance-overview-card h4 {
+    font-size: 2rem; /* Ensure income/expense numbers are prominent */
+    margin-bottom: 0.5rem !important;
+}
+
+.stat-card {
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+    transition: all 0.2s ease-in-out;
+    padding: 1.2rem !important; /* Reduced padding */
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.stat-card i {
+    font-size: 2rem !important; /* Smaller icons */
+    margin-bottom: 0.5rem !important;
+}
+
+.stat-card p.text-muted {
+    font-size: 0.8rem; /* Smaller label */
+    font-weight: 400; /* Normal weight */
+    margin-bottom: 0.3rem !important;
+}
+
+.stat-card h5 {
+    font-size: 1.5rem !important; /* Smaller prominent amount */
+    font-weight: 600;
+}
+
+.stat-card .text-muted {
+    font-size: 0.9rem;
+}
+
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0; /* Prevent shrinking */
+}

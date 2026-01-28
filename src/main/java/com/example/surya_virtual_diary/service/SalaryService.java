@@ -3,6 +3,7 @@ package com.example.surya_virtual_diary.service;
 import com.example.surya_virtual_diary.models.SalaryEntry;
 import org.springframework.stereotype.Service;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -24,7 +25,19 @@ public class SalaryService {
     }
 
     public List<SalaryEntry> getSalaryEntries() {
-        return salaryEntries;
+        int currentYear = Year.now().getValue(); // Get the current year dynamically
+
+        return salaryEntries.stream().map(entry -> {
+            // isJanuary is true only if it's January of the current year
+            if ("January".equals(entry.getMonth()) && entry.getYear() == currentYear) {
+                entry.setJanuary(true);
+            } else {
+                entry.setJanuary(false); // Ensure it's false otherwise
+            }
+            // Reset shouldHighlightYear as it's no longer used for this specific purpose
+            entry.setShouldHighlightYear(false);
+            return entry;
+        }).collect(Collectors.toList());
     }
 
     public Optional<SalaryEntry> getLastMonthSalaryEntry() {
