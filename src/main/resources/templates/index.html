@@ -5,56 +5,54 @@
 </head>
 <body>
 <main th:fragment="content">
-    <div class="header">
-        <h1>Dashboard</h1>
-    </div>
+
 
     <div class="row g-4">
-        <!-- Balance Overview (Full Width) -->
-        <div class="col-12 mb-4">
-            <div class="card p-4 balance-overview-card">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="card-title text-white mb-0">Total Balance</h5>
-                </div>
-                <h2 class="display-4 fw-bold text-success" th:text="'₹ ' + ${#numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h2>
-                <div class="row mt-4">
-                    <div class="col-6">
-                        <p class="text-muted mb-1">Income</p>
-                        <h4 class="text-success" th:text="'₹ ' + ${#numbers.formatDecimal(totalSalary, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h4>
+        <div class="col-12 mb-4 text-center">
+            <h2 class="display-4">Welcome, Surya Sivakumar!</h2>
+        </div>
+
+        <div class="col-12">
+            <div class="row g-4">
+                <!-- Total Balance Card -->
+                <div class="col-md-6 mb-4">
+                    <div class="card p-4 text-center">
+                        <h5 class="card-title text-muted mb-2">Current Balance</h5>
+                        <h3 class="fw-bold text-success" th:text="'₹ ' + ${#numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h3>
                     </div>
-                    <div class="col-6">
-                        <p class="text-muted mb-1">Expense</p>
-                        <h4 class="text-danger" th:text="'₹ ' + ${#numbers.formatDecimal(totalExpenses, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h4>
+                </div>
+                <!-- Current Company Card -->
+                <div class="col-md-6 mb-4">
+                    <div class="card p-4 text-center">
+                        <h5 class="card-title text-muted mb-2">Current Company</h5>
+                        <h3 class="fw-bold text-white" th:text="${currentCompany}">N/A</h3>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Quick Stats (In a new row, side-by-side) -->
-        <div class="col-12">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card p-3 text-center stat-card">
-                        <i class="fas fa-money-bill-wave fa-2x text-primary mb-2"></i>
-                        <p class="text-muted mb-0">Total Expenses</p>
-                        <h5 class="text-danger" th:text="'₹ ' + ${#numbers.formatDecimal(totalExpenses, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h5>
+        <div class="col-12 mb-4">
+            <div class="card p-4 text-center">
+                <div class="row g-4">
+                    <!-- Income Section -->
+                    <div class="col-md-4">
+                        <h5 class="card-title text-muted mb-2">Total Income</h5>
+                        <h4 class="text-white" th:text="'₹ ' + ${#numbers.formatDecimal(totalSalary, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h4>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card p-3 text-center stat-card">
-                        <i class="fas fa-arrow-alt-circle-up fa-2x text-success mb-2"></i>
-                        <p class="text-muted mb-0">Total Income</p>
-                        <h5 class="text-success" th:text="'₹ ' + ${#numbers.formatDecimal(totalSalary, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h5>
+                    <!-- Expense Section -->
+                    <div class="col-md-4">
+                        <h5 class="card-title text-muted mb-2">Total Expense</h5>
+                        <h4 class="text-white" th:text="'₹ ' + ${#numbers.formatDecimal(totalExpenses, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h4>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card p-3 text-center stat-card">
-                        <i class="fas fa-wallet fa-2x text-info mb-2"></i>
-                        <p class="text-muted mb-0">Total Savings</p>
-                        <h5 class="text-info" th:text="'₹ ' + ${#numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h5>
+                    <!-- Last Month Salary Section -->
+                    <div class="col-md-4">
+                        <h5 class="card-title text-muted mb-2">Last Month Salary</h5>
+                        <h4 class="text-white" th:text="'₹ ' + ${#numbers.formatDecimal(lastMonthSalaryAmount, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h4>
                     </div>
                 </div>
             </div>
         </div>
+
+
     </div>
 </main>

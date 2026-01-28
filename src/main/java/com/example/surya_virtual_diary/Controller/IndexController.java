@@ -56,6 +56,8 @@ public class IndexController {
         model.addAttribute("totalSavings", totalSavings);
         model.addAttribute("totalExpenses", totalExpenses);
         model.addAttribute("currentCompany", currentCompany);
+        double lastMonthSalaryAmount = salaryService.getLastMonthSalaryAmount();
+        model.addAttribute("lastMonthSalaryAmount", lastMonthSalaryAmount);
 
         return "layout";
     }
