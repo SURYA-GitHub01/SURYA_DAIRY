@@ -8,17 +8,17 @@
 
 
     <div class="row g-4">
-        <div class="col-12 mb-4 text-center">
+        <div class="col-12 mb-5 text-center" style="margin-top: 5rem !important;">
             <h2 class="display-4">Welcome, Surya Sivakumar!</h2>
         </div>
 
         <div class="col-12">
             <div class="row g-4">
-                <!-- Total Balance Card -->
+                <!-- Current Role Card -->
                 <div class="col-md-6 mb-0">
                     <div class="card p-4 text-center">
-                        <h5 class="card-title text-muted mb-2">Current Balance</h5>
-                        <h3 class="fw-bold text-success" th:text="'₹ ' + ${#numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h3>
+                        <h5 class="card-title text-muted mb-2">Current Role</h5>
+                        <h3 class="fw-bold text-primary" th:text="${currentRole}">No Active Role</h3>
                     </div>
                 </div>
                 <!-- Current Company Card -->
@@ -33,6 +33,25 @@
 
         <div class="col-12">
             <div class="row g-4">
+                <!-- Current Balance Card -->
+                <div class="col-md-6 mb-0">
+                    <div class="card p-4 text-center">
+                        <h5 class="card-title text-muted mb-2">Current Balance</h5>
+                        <h3 class="fw-bold text-success" th:text="'₹ ' + ${#numbers.formatDecimal(totalSavings, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h3>
+                    </div>
+                </div>
+                <!-- Last Month Salary Card -->
+                <div class="col-md-6 mb-0">
+                    <div class="card p-4 text-center">
+                        <h5 class="card-title text-muted mb-2">Last Month Salary</h5>
+                        <h3 class="fw-bold text-success" th:text="'₹ ' + ${#numbers.formatDecimal(lastMonthSalaryAmount, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="row g-4">
                 <!-- Total Income Card -->
                 <div class="col-md-6 mb-0">
                     <div class="card p-4 text-center">
@@ -40,16 +59,16 @@
                         <h3 class="fw-bold text-warning" th:text="'₹ ' + ${#numbers.formatDecimal(totalSalary, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h3>
                     </div>
                 </div>
-
-                <!-- Last Month Salary Card -->
+                <!-- Total Expense Card -->
                 <div class="col-md-6 mb-0">
                     <div class="card p-4 text-center">
-                        <h5 class="card-title text-muted mb-2">Last Month Salary</h5>
-                        <h3 class="fw-bold text-warning" th:text="'₹ ' + ${#numbers.formatDecimal(lastMonthSalaryAmount, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h3>
+                        <h5 class="card-title text-muted mb-2">Total Expense</h5>
+                        <h3 class="fw-bold text-warning" th:text="'₹ ' + ${#numbers.formatDecimal(totalExpenses, 0, 'COMMA', 0, 'POINT')}">₹ 0.00</h3>
                     </div>
                 </div>
             </div>
         </div>
+
 
 
     </div>

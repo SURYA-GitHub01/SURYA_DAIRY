@@ -50,12 +50,15 @@ public class IndexController {
                 .map(SalaryEntry::getCompanyName)
                 .orElse("N/A");
 
+        String currentRole = "Backend Developer";
+
         model.addAttribute("view", "index");
         model.addAttribute("totalProjects", totalProjects);
         model.addAttribute("totalSalary", totalSalary);
         model.addAttribute("totalSavings", totalSavings);
         model.addAttribute("totalExpenses", totalExpenses);
         model.addAttribute("currentCompany", currentCompany);
+        model.addAttribute("currentRole", currentRole);
         double lastMonthSalaryAmount = salaryService.getLastMonthSalaryAmount();
         model.addAttribute("lastMonthSalaryAmount", lastMonthSalaryAmount);
 

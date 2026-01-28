@@ -38,6 +38,10 @@ body {
     font-weight: 500;
 }
 
+.sidebar .nav-link.active:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.3); /* More pronounced glow on hover */
+}
+
 .main-content {
     margin-left: 250px;
     padding: 40px;
@@ -340,4 +344,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .table-dark th, .table-dark td {
     padding: 0.7rem; /* Reduced padding for compact tables */
+}
+
+.main-title {
+    color: var(--primary-color) !important; /* Use primary theme color for the main title */
 }
