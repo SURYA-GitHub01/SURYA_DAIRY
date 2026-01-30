@@ -26,11 +26,18 @@ public class SalaryController {
     public String salary(Model model) {
         List<SalaryEntry> salaryEntries = salaryService.getSalaryEntries();
         
-        // Sort by company name and then by year/month for consistent grouping and comparison
+        // Correct chronological month sorting
+        Map<String, Integer> monthOrder = Map.ofEntries(
+                Map.entry("January", 1), Map.entry("February", 2), Map.entry("March", 3),
+                Map.entry("April", 4), Map.entry("May", 5), Map.entry("June", 6),
+                Map.entry("July", 7), Map.entry("August", 8), Map.entry("September", 9),
+                Map.entry("October", 10), Map.entry("November", 11), Map.entry("December", 12)
+        );
+
         salaryEntries.sort(Comparator
                 .comparing(SalaryEntry::getCompanyName)
                 .thenComparingInt(SalaryEntry::getYear)
-                .thenComparing(SalaryEntry::getMonth)); // Assuming alphabetical month is sufficient for this sample
+                .thenComparing(entry -> monthOrder.get(entry.getMonth())));
 
         // Logic for Year Highlighting (Part 1)
         int previousYear = -1; // Sentinel value, assuming years are non-negative
