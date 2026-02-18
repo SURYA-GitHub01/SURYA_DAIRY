@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gold & Silver</title>
+    <link rel="stylesheet" th:href="@{/css/gold-silver.css}">
+</head>
+<body>
+<main th:fragment="content">
+    <div class="header d-flex justify-content-between align-items-center mb-4">
+        <h1>Gold & Silver</h1>
+        <div class="total-portfolio-value">
+            <span class="text-muted">Total Value:</span>
+            <span class="h4 mb-0 ms-2 text-warning" th:text="${totalValue}">₹ 0.00</span>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-6">
+            <div class="card gold-card h-100">
+                <div class="card-body p-4">
+                    <h6 class="card-subtitle mb-2 text-muted text-uppercase small fw-bold">Total Gold Weight</h6>
+                    <h2 class="card-title mb-1 fw-bold" th:text="${totalGoldWeight} + ' g'">0 g</h2>
+                    <h4 class="text-warning mb-0" th:text="${totalGoldValue}">₹ 0.00</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card silver-card h-100">
+                <div class="card-body p-4">
+                    <h6 class="card-subtitle mb-2 text-muted text-uppercase small fw-bold">Total Silver Weight</h6>
+                    <h2 class="card-title mb-1 fw-bold" th:text="${totalSilverWeight} + ' g'">0 g</h2>
+                    <h4 class="text-light mb-0" th:text="${totalSilverValue}">₹ 0.00</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Gold Buying History</h5>
+                    <span class="badge bg-warning text-dark">Gold</span>
+                </div>
+                <div class="card-body">
+                    <div th:if="${goldEntries.empty}" class="text-center py-3">
+                        <p class="text-muted mb-0">No gold purchase history found.</p>
+                    </div>
+                    <div th:unless="${goldEntries.empty}" class="table-responsive">
+                        <table class="table table-dark table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Weight (g)</th>
+                                <th>Purity</th>
+                                <th>Price Paid</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="entry : ${goldEntries}">
+                                <td th:text="${entry.date}"></td>
+                                <td th:text="${entry.weight}"></td>
+                                <td th:text="${entry.purity}"></td>
+                                <td th:text="${entry.formattedPrice}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Silver Buying History</h5>
+                    <span class="badge bg-secondary">Silver</span>
+                </div>
+                <div class="card-body">
+                    <div th:if="${silverEntries.empty}" class="text-center py-3">
+                        <p class="text-muted mb-0">No silver purchase history found.</p>
+                    </div>
+                    <div th:unless="${silverEntries.empty}" class="table-responsive">
+                        <table class="table table-dark table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Weight (g)</th>
+                                <th>Purity</th>
+                                <th>Price Paid</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="entry : ${silverEntries}">
+                                <td th:text="${entry.date}"></td>
+                                <td th:text="${entry.weight}"></td>
+                                <td th:text="${entry.purity}"></td>
+                                <td th:text="${entry.formattedPrice}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

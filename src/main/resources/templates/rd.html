@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Recurring Deposits</title>
+    <link rel="stylesheet" th:href="@{/css/rd.css}">
+</head>
+<body>
+<main th:fragment="content">
+    <div class="header d-flex justify-content-between align-items-center mb-4">
+        <h1>Recurring Deposits (RD)</h1>
+    </div>
+
+    <div class="row g-4">
+        <!-- Loop through each RD entry and create a separate card in vertical order -->
+        <div th:each="entry : ${rdEntries}" class="col-12">
+            <div class="card rd-item-card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0" th:text="${entry.name}">RD Name</h5>
+                    <span class="badge" 
+                          th:classappend="${entry.status == 'Active' ? 'bg-success' : 'bg-secondary'}"
+                          th:text="${entry.status}">Status</span>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <h6 class="text-muted mb-1">Total Paid Till Now</h6>
+                        <h3 class="text-primary fw-bold" th:text="${entry.formattedTotalPaidTillNow}">₹ 0.00</h3>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-sm table-dark-custom">
+                            <tbody>
+                                <tr>
+                                    <td class="text-muted">Monthly Amount</td>
+                                    <td class="text-end fw-bold" th:text="${entry.formattedMonthlyAmount}">₹ 0</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Months Paid</td>
+                                    <td class="text-end fw-bold" th:text="${entry.monthsPaidTillNow} + ' / ' + ${entry.tenureMonths}">0 / 0</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Timeline</td>
+                                    <td class="text-end fw-bold" th:text="${entry.totalTenureYears} + ' Years'">0 Years</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Start Date</td>
+                                    <td class="text-end fw-bold" th:text="${entry.formattedStartDate}">Date</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Maturity Year</td>
+                                    <td class="text-end fw-bold text-warning" th:text="${entry.maturityYear}">20XX</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Expected Total</td>
+                                    <td class="text-end fw-bold" th:text="${entry.formattedTotalPrincipal}">₹ 0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-primary" role="progressbar" 
+                             th:style="'width: ' + (${entry.monthsPaidTillNow} * 100 / ${entry.tenureMonths}) + '%'" 
+                             th:aria-valuenow="${entry.monthsPaidTillNow}" 
+                             aria-valuemin="0" 
+                             th:aria-valuemax="${entry.tenureMonths}"></div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-1">
+                        <small class="text-muted" th:text="(${entry.monthsPaidTillNow} * 100 / ${entry.tenureMonths}) + '%'"></small>
+                        <small class="text-muted">Progress</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div th:if="${rdEntries.empty}" class="col-12 text-center py-5">
+            <div class="card bg-dark text-muted p-5">
+                <i class="fas fa-piggy-bank fa-3x mb-3"></i>
+                <p>No recurring deposit records found.</p>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
