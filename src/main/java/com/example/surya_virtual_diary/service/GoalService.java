@@ -26,7 +26,7 @@ public class GoalService {
         goals.add(new Goal(++goalIdCounter, "Built First Floor", "long-term", "Planned"));
         goals.add(new Goal(++goalIdCounter, "Buy Gold Chain", "long-term", "Planned"));
         goals.add(new Goal(++goalIdCounter, "Buy Gold Bar", "long-term", "Planned"));
-        goals.add(new Goal(++goalIdCounter, "Buy Silver Bar", "long-term", "Completed"));
+        goals.add(new Goal(++goalIdCounter, "Buy Silver Bar", "long-term", "Planned"));
     }
 
     public List<Goal> getGoals() {

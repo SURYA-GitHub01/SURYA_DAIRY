@@ -22,6 +22,8 @@ public class SalaryService {
         salaryEntries.add(new SalaryEntry("aTalent", 8000, "November", 2025));
         salaryEntries.add(new SalaryEntry("aTalent", 8000, "December", 2025));
         salaryEntries.add(new SalaryEntry("aTalent", 8000, "January", 2026));
+        salaryEntries.add(new SalaryEntry("aTalent", 0, "February", 2026));
+
     }
 
     public List<SalaryEntry> getSalaryEntries() {
