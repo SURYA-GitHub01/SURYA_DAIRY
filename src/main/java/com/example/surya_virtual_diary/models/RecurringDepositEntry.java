@@ -1,13 +1,28 @@
 package com.example.surya_virtual_diary.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class RecurringDepositEntry {
-    private String name; // e.g., "Post Office RD"
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
     private double monthlyAmount;
     private LocalDate startDate;
     private int tenureMonths;
@@ -17,21 +32,12 @@ public class RecurringDepositEntry {
     public RecurringDepositEntry(String name, double monthlyAmount, String startDate, int tenureMonths, double interestRate, String status) {
         this.name = name;
         this.monthlyAmount = monthlyAmount;
-        this.startDate = LocalDate.parse(startDate); // Expecting YYYY-MM-DD
+        this.startDate = LocalDate.parse(startDate);
         this.tenureMonths = tenureMonths;
         this.interestRate = interestRate;
         this.status = status;
     }
 
-    // Getters
-    public String getName() { return name; }
-    public double getMonthlyAmount() { return monthlyAmount; }
-    public LocalDate getStartDate() { return startDate; }
-    public int getTenureMonths() { return tenureMonths; }
-    public double getInterestRate() { return interestRate; }
-    public String getStatus() { return status; }
-
-    // Calculations
     public long getMonthsPaidTillNow() {
         if (status.equalsIgnoreCase("Completed")) {
             return tenureMonths;
@@ -40,7 +46,7 @@ public class RecurringDepositEntry {
         if (now.isBefore(startDate)) return 0;
         
         Period period = Period.between(startDate.withDayOfMonth(1), now.withDayOfMonth(1));
-        long months = period.getYears() * 12L + period.getMonths() + 1; // +1 to include current month
+        long months = period.getYears() * 12L + period.getMonths() + 1;
         return Math.min(months, tenureMonths);
     }
 

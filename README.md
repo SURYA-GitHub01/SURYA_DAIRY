@@ -1,19 +1,31 @@
 # Surya Virtual Diary
 
+## Prerequisites
+
+- **Docker Desktop:** Ensure Docker is installed and running.
+- **Java 21 or higher:** For building and running the Spring Boot application.
+- **Maven:** For building the project.
+
 ## How to Run the Application
 
-1. **Build the project:**
+1. **Start the Oracle Database (via Docker):**
+   ```bash
+   docker-compose up -d
+   ```
+   This will pull the Oracle XE image and start a container on port 1521.
+
+2. **Build the project:**
    ```bash
    mvn clean install
    ```
 
-2. **Run the application:**
+3. **Run the application:**
    ```bash
    java -jar target/surya-virtual-diary-0.0.1-SNAPSHOT.jar
    ```
 
-3. **Access the application:**
-   Open your web browser and go to `http://localhost:8080`.
+4. **Access the application:**
+   Open your web browser and go to `http://localhost:7070`.
 
 ## Important Note for Developers
 

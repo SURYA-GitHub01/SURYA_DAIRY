@@ -66,7 +66,7 @@
                             <tbody>
                             <tr th:each="savings : ${savingsList}">
                                 <td th:text="${savings.description}"></td>
-                                <td th:text="${#temporals.format(savings.date, 'dd-MM-yyyy')}"></td>
+                                <td th:text="${#temporals.format(savings.savingsDate, 'dd-MM-yyyy')}"></td>
                                 <td class="savings-amount text-success" th:text="'₹ ' + ${#numbers.formatDecimal(savings.amount, 0, 'COMMA', 0, 'POINT')}"></td>
                             </tr>
                             </tbody>
@@ -98,7 +98,7 @@
                             <tbody>
                             <tr th:each="fund : ${emergencyFundList}">
                                 <td th:text="${fund.description}"></td>
-                                <td th:text="${#temporals.format(fund.date, 'dd-MM-yyyy')}"></td>
+                                <td th:text="${#temporals.format(fund.fundDate, 'dd-MM-yyyy')}"></td>
                                 <td class="emergency-fund-amount text-warning" th:text="'₹ ' + ${#numbers.formatDecimal(fund.amount, 0, 'COMMA', 0, 'POINT')}"></td>
                             </tr>
                             </tbody>

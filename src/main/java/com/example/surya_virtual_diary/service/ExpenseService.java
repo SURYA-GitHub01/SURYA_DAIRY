@@ -1,6 +1,9 @@
 package com.example.surya_virtual_diary.service;
 
 import com.example.surya_virtual_diary.models.Expense;
+import com.example.surya_virtual_diary.repository.ExpenseRepository;
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -8,17 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ExpenseService {
 
-    private static final List<Expense> expenses = new ArrayList<>();
-    private static long expenseIdCounter = 0;
-
-    static {
-        expenses.add(new Expense(++expenseIdCounter, "Major Expense 1", 1000.0, LocalDate.now().minusDays(10)));
-        expenses.add(new Expense(++expenseIdCounter, "Major Expense 2", 2500.0, LocalDate.now().minusDays(5)));
-    }
+    private final ExpenseRepository expenseRepository;
 
     public List<Expense> getExpenses() {
-        return expenses;
+        return expenseRepository.findAll();
     }
 }

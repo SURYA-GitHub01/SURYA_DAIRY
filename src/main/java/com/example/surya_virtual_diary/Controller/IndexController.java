@@ -45,8 +45,7 @@ public class IndexController {
         double totalSalary = salaryEntries.stream().mapToDouble(SalaryEntry::getTotalSalary).sum();
         double totalSavings = savingsList.stream().mapToDouble(Savings::getAmount).sum();
         double totalExpenses = expenses.stream().mapToDouble(Expense::getAmount).sum();
-        String currentCompany = salaryEntries.stream()
-                .max(Comparator.comparing(SalaryEntry::getYear).thenComparing(SalaryEntry::getMonth))
+        String currentCompany = salaryService.getLastMonthSalaryEntry()
                 .map(SalaryEntry::getCompanyName)
                 .orElse("N/A");
 

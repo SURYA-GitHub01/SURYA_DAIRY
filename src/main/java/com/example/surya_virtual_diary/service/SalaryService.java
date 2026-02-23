@@ -1,49 +1,40 @@
 package com.example.surya_virtual_diary.service;
 
 import com.example.surya_virtual_diary.models.SalaryEntry;
+import com.example.surya_virtual_diary.repository.SalaryRepository;
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class SalaryService {
 
-    private static final List<SalaryEntry> salaryEntries = new ArrayList<>();
-
-    static {
-        salaryEntries.add(new SalaryEntry("aTalent", 8000, "September", 2025));
-        salaryEntries.add(new SalaryEntry("aTalent", 8000, "October", 2025));
-        salaryEntries.add(new SalaryEntry("aTalent", 8000, "November", 2025));
-        salaryEntries.add(new SalaryEntry("aTalent", 8000, "December", 2025));
-        salaryEntries.add(new SalaryEntry("aTalent", 8000, "January", 2026));
-        salaryEntries.add(new SalaryEntry("aTalent", 0, "February", 2026));
-
-    }
+    private final SalaryRepository salaryRepository;
 
     public List<SalaryEntry> getSalaryEntries() {
-        int currentYear = Year.now().getValue(); // Get the current year dynamically
+        int currentYear = Year.now().getValue();
 
-        return salaryEntries.stream().map(entry -> {
-            // isJanuary is true only if it's January of the current year
+        return salaryRepository.findAll().stream().map(entry -> {
             if ("January".equals(entry.getMonth()) && entry.getYear() == currentYear) {
                 entry.setJanuary(true);
             } else {
-                entry.setJanuary(false); // Ensure it's false otherwise
+                entry.setJanuary(false);
             }
-            // Reset shouldHighlightYear as it's no longer used for this specific purpose
             entry.setShouldHighlightYear(false);
             return entry;
         }).collect(Collectors.toList());
     }
 
     public Optional<SalaryEntry> getLastMonthSalaryEntry() {
-        return salaryEntries.stream()
+        return salaryRepository.findAll().stream()
                 .max(Comparator
                         .comparing(SalaryEntry::getYear)
                         .thenComparing(entry -> getMonthValue(entry.getMonth())));
@@ -52,10 +43,9 @@ public class SalaryService {
     public double getLastMonthSalaryAmount() {
         return getLastMonthSalaryEntry()
                 .map(SalaryEntry::getTotalSalary)
-                .orElse(0.0); // Return 0.0 if no salary entries found
+                .orElse(0.0);
     }
 
-    // Helper method to convert month name to an integer for sorting
     private int getMonthValue(String month) {
         return switch (month) {
             case "January" -> 1;
@@ -70,7 +60,7 @@ public class SalaryService {
             case "October" -> 10;
             case "November" -> 11;
             case "December" -> 12;
-            default -> 0; // Should not happen with valid month names
+            default -> 0;
         };
     }
 }

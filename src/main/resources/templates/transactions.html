@@ -45,7 +45,7 @@
                             <tbody>
                             <tr th:each="expense : ${expenses}">
                                 <td th:text="${expense.description}"></td>
-                                <td th:text="${#temporals.format(expense.date, 'dd-MM-yyyy')}"></td>
+                                <td th:text="${#temporals.format(expense.expenseDate, 'dd-MM-yyyy')}"></td>
                                 <td class="expense-amount text-danger" th:text="'- ₹ ' + ${#numbers.formatDecimal(expense.amount, 0, 'COMMA', 0, 'POINT')}"></td>
                             </tr>
                             </tbody>

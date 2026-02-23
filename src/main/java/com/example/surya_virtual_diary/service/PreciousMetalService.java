@@ -1,35 +1,26 @@
 package com.example.surya_virtual_diary.service;
 
 import com.example.surya_virtual_diary.models.PreciousMetalEntry;
+import com.example.surya_virtual_diary.repository.PreciousMetalRepository;
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class PreciousMetalService {
 
-    private static final List<PreciousMetalEntry> entries = new ArrayList<>();
-
-    static {
-        // Sample data
-        entries.add(new PreciousMetalEntry("Gold", 5.0, 35000.0, "2024-05-10", "24K"));
-        entries.add(new PreciousMetalEntry("Gold", 2.0, 14500.0, "2024-08-15", "22K"));
-        entries.add(new PreciousMetalEntry("Silver", 100.0, 8500.0, "2024-06-20", "999"));
-        entries.add(new PreciousMetalEntry("Silver", 50.0, 4200.0, "2024-09-05", "999"));
-    }
+    private final PreciousMetalRepository preciousMetalRepository;
 
     public List<PreciousMetalEntry> getGoldEntries() {
-        return entries.stream()
-                .filter(e -> "Gold".equalsIgnoreCase(e.getType()))
-                .collect(Collectors.toList());
+        return preciousMetalRepository.findByTypeIgnoreCase("Gold");
     }
 
     public List<PreciousMetalEntry> getSilverEntries() {
-        return entries.stream()
-                .filter(e -> "Silver".equalsIgnoreCase(e.getType()))
-                .collect(Collectors.toList());
+        return preciousMetalRepository.findByTypeIgnoreCase("Silver");
     }
 
     public double getTotalGoldWeight() {
