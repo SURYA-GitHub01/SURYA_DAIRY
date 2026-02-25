@@ -8,14 +8,12 @@ public class PreciousMetalEntry {
     private double weight; // in grams
     private double price; // total price paid
     private String date; // purchase date
-    private String purity; // e.g., "24K", "22K", "999"
 
-    public PreciousMetalEntry(String type, double weight, double price, String date, String purity) {
+    public PreciousMetalEntry(String type, double weight, double price, String date) {
         this.type = type;
         this.weight = weight;
         this.price = price;
         this.date = date;
-        this.purity = purity;
     }
 
     // Getters
@@ -23,14 +21,12 @@ public class PreciousMetalEntry {
     public double getWeight() { return weight; }
     public double getPrice() { return price; }
     public String getDate() { return date; }
-    public String getPurity() { return purity; }
 
     // Setters
     public void setType(String type) { this.type = type; }
     public void setWeight(double weight) { this.weight = weight; }
     public void setPrice(double price) { this.price = price; }
     public void setDate(String date) { this.date = date; }
-    public void setPurity(String purity) { this.purity = purity; }
 
     public String getFormattedPrice() {
         Locale indianLocale = new Locale("en", "IN");

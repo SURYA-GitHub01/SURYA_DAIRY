@@ -66,3 +66,12 @@
     font-size: 0.875rem;
     font-weight: 500;
 }
+
+.text-silver {
+    color: #C0C0C0 !important;
+}
+
+.total-weight-text {
+    font-size: 4rem !important;
+    line-height: 1.2;
+}

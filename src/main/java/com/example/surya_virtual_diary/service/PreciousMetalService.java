@@ -14,10 +14,10 @@ public class PreciousMetalService {
 
     static {
         // Sample data
-        entries.add(new PreciousMetalEntry("Gold", 5.0, 35000.0, "2024-05-10", "24K"));
-        entries.add(new PreciousMetalEntry("Gold", 2.0, 14500.0, "2024-08-15", "22K"));
-        entries.add(new PreciousMetalEntry("Silver", 100.0, 8500.0, "2024-06-20", "999"));
-        entries.add(new PreciousMetalEntry("Silver", 50.0, 4200.0, "2024-09-05", "999"));
+        entries.add(new PreciousMetalEntry("Gold", 5.0, 35000.0, "2024-05-10"));
+        entries.add(new PreciousMetalEntry("Gold", 2.0, 14500.0, "2024-08-15"));
+        entries.add(new PreciousMetalEntry("Silver", 100.0, 8500.0, "2024-06-20"));
+        entries.add(new PreciousMetalEntry("Silver", 50.0, 4200.0, "2024-09-05"));
     }
 
     public List<PreciousMetalEntry> getGoldEntries() {
