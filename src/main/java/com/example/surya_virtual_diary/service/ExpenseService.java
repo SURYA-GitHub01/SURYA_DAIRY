@@ -14,8 +14,7 @@ public class ExpenseService {
     private static long expenseIdCounter = 0;
 
     static {
-        expenses.add(new Expense(++expenseIdCounter, "Major Expense 1", 1000.0, LocalDate.now().minusDays(10)));
-        expenses.add(new Expense(++expenseIdCounter, "Major Expense 2", 2500.0, LocalDate.now().minusDays(5)));
+        expenses.add(new Expense(++expenseIdCounter, "Sport Shoe", 1700.0, LocalDate.of(2026, 2, 26)));
     }
 
     public List<Expense> getExpenses() {
