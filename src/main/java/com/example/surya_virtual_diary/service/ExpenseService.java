@@ -15,6 +15,9 @@ public class ExpenseService {
 
     static {
         expenses.add(new Expense(++expenseIdCounter, "Sport Shoe", 1700.0, LocalDate.of(2026, 2, 26)));
+        expenses.add(new Expense(++expenseIdCounter, "GYM Subscription", 500.0, LocalDate.of(2026, 3, 01)));
+        expenses.add(new Expense(++expenseIdCounter, "GYM", 2000.0, LocalDate.of(2026, 3, 01)));
+
     }
 
     public List<Expense> getExpenses() {
