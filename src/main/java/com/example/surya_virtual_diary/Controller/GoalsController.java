@@ -11,17 +11,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-public class InvestmentsController {
+public class GoalsController {
 
     private final GoalService goalService;
 
     @Autowired
-    public InvestmentsController(GoalService goalService) {
+    public GoalsController(GoalService goalService) {
         this.goalService = goalService;
     }
 
-    @GetMapping("/investments")
-    public String investments(Model model) {
+    @GetMapping("/goals")
+    public String goals(Model model) {
         List<Goal> allGoals = goalService.getGoals();
 
         List<Goal> shortTermGoals = allGoals.stream()
@@ -36,7 +36,12 @@ public class InvestmentsController {
         model.addAttribute("longTermGoals", longTermGoals);
         model.addAttribute("totalShortTermGoals", shortTermGoals.size());
         model.addAttribute("totalLongTermGoals", longTermGoals.size());
-        model.addAttribute("view", "investments");
+        model.addAttribute("view", "goals");
         return "layout";
+    }
+
+    @GetMapping("/investments")
+    public String redirectToGoals() {
+        return "redirect:/goals";
     }
 }

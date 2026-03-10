@@ -15,7 +15,7 @@ public class GoalService {
 
     static {
         // Short-term goals
-        goals.add(new Goal(++goalIdCounter, "Full Time IT Job", "short-term", "In Progress"));
+        goals.add(new Goal(++goalIdCounter, "Full Time IT Job", "short-term", "Completed"));
         goals.add(new Goal(++goalIdCounter, "Save 1 Lakh", "short-term", "Planned"));
         goals.add(new Goal(++goalIdCounter, "Kovil poojai", "short-term", "Planned"));
 
